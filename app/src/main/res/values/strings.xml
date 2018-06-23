@@ -1,0 +1,100 @@
+<resources>
+    <string name="app_name">ITT_V1</string>
+
+    <string name="start">Start</string>
+
+    <string name="profil">Profil</string>
+
+    <string name="historie">Historie</string>
+
+    <string name="social">Social</string>
+
+    <string name="buchungshistorie">Historie deiner Fahrten</string>
+
+    <string name="suchen">Fahrt suchen</string>
+
+    <string name="datum1">1. Di., 10. Juli 2018</string>
+
+    <string name="uhrzeit1">09:30 Uhr - 09:44 Uhr</string>
+
+    <string name="von1">Start: TU Dortmund, Dortmund</string>
+
+    <string name="nach1">Ziel: Deutsches Fussballmuseum, Dortmund</string>
+
+    <string name="datum2">2. Mo., 09. Juli 2018</string>
+
+    <string name="uhrzeit2">21:13 Uhr - 22:31 Uhr</string>
+
+    <string name="von2">Start: Westfalenstadion, Dortmund</string>
+
+    <string name="nach2">Ziel: Dortmunder Flughafen, Dortmund</string>
+
+    <string name="hallo_max">Hallo Max</string>
+
+    <string name="folgende_veranstaltungen_finden">Folgende Veranstaltungen finden</string>
+
+    <string name="heute_in_deiner_n_he_statt_">heute in deiner Nähe statt:</string>
+
+    <string name="fußball">Fußball</string>
+
+    <string name="konzerte">Konzerte</string>
+
+    <string name="kino">Kino</string>
+
+    <string name="einladungen">Einladungen</string>
+
+    <string name="von">von</string>
+
+    <string name="nach">nach</string>
+
+    <string name="fahrt_buchen">Fahrt buchen</string>
+
+    <string name="button1">Persönliche Daten ändern</string>
+
+    <string name="interessen">Interessen:</string>
+
+    <string name="name">Name</string>
+
+    <string name="alter">Alter</string>
+
+    <string name="beschreibung">Beschreibung</string>
+
+    <string name="zurück">Zurück</string>
+
+    <string name="button2">Speichern</string>
+
+    <string-array  name="Interessen">
+        <item>Shoppen</item>
+        <item>Sport</item>
+        <item>Fußball</item>
+    </string-array>
+
+    <string name="rihanna">Rihanna</string>
+
+    <string name="dortmund_10_04_2018">Dortmund - 10.04.2018</string>
+
+    <string name="button">Button</string>
+
+    <string name="bvb_fsv_mainz_05">BVB - FSV Mainz 05</string>
+
+    <string name="mia_mustermann">Mia Mustermann</string>
+
+
+    <string name="k_ln_18_08_2018">Köln - 18.08.2018</string>
+
+    <string name="fahrt_planen">fahrt planen</string>
+
+    <string name="todo">TODO</string>
+
+    <string name="mit_dabei">Mit dabei:</string>
+
+    <string name="demn_chst_in_der_n_he">Demnächst in der Nähe</string>
+
+    <string name="mitfahrer">Mitfahrer:</string>
+
+    <string name="heidi_heidenei">Heidi Heidenei</string>
+
+    <string name="aktivi_ten">Aktiviäten:</string>
+
+</resources>
+

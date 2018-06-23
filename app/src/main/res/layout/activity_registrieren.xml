@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/startseite_2"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView_Registrierung"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="80dp"
+                android:layout_marginLeft="80dp"
+                android:layout_marginRight="80dp"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="32dp"
+                android:text="Registrierung"
+                android:textColor="@android:color/black"
+                android:textSize="36sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView_Pflicht"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="63dp"
+                android:layout_marginLeft="63dp"
+                android:layout_marginRight="63dp"
+                android:layout_marginStart="63dp"
+                android:layout_marginTop="16dp"
+                android:text="Die folgenden Angaben sind verpflichtend"
+                android:textColor="@android:color/background_dark"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView_Registrierung" />
+
+            <TextView
+                android:id="@+id/textViewPerson"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:background="@android:color/transparent"
+                android:text="Persönliche Daten"
+                android:textColor="@android:color/black"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView_Pflicht" />
+
+            <EditText
+                android:id="@+id/editTextFName"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edittextstyle"
+                android:gravity="center"
+                android:hint="Vorname"
+                android:inputType="text"
+                app:layout_constraintBottom_toTopOf="@+id/editTextLName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textViewPerson" />
+
+            <EditText
+                android:id="@+id/editTextLName"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edittextstyle"
+                android:gravity="center"
+                android:hint="Nachname"
+                android:inputType="text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextFName" />
+
+            <EditText
+                android:id="@+id/editTextGeburtsdatum"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edittextstyle"
+                android:gravity="center"
+                android:hint="Geburtsdatum"
+                android:inputType="date"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/editTextLName" />
+
+            <EditText
+                android:id="@+id/editTextGeburtsort"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edittextstyle"
+                android:gravity="center"
+                android:hint="Geburtsort"
+                android:inputType="text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/editTextGeburtsdatum" />
+
+            <EditText
+                android:id="@+id/editTextHandynummer"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edittextstyle"
+                android:gravity="center"
+                android:hint="Handynummer"
+                android:inputType="phone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/editTextGeburtsort" />
+
+
+            <EditText
+                android:id="@+id/editTextEmail"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edittextstyle"
+                android:gravity="center"
+                android:hint="E-Mail Adresse"
+                android:inputType="textEmailAddress"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextHandynummer" />
+
+            <EditText
+                android:id="@+id/editTextPersonummer"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edittextstyle"
+                android:gravity="center"
+                android:hint="Personalausweisnr."
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextEmail" />
+
+
+            <EditText
+                android:id="@+id/editTextPasswort"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edittextstyle"
+                android:gravity="center"
+                android:hint="Passwort"
+                android:inputType="textPassword"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextPersonummer" />
+
+            <EditText
+                android:id="@+id/editTextPasswortWH"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edittextstyle"
+                android:gravity="center"
+                android:hint="Passwort wiederholen"
+                android:inputType="textPassword"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextPasswort" />
+
+            <TextView
+                android:id="@+id/textViewLinie1"
+                android:layout_width="fill_parent"
+                android:layout_height="2dip"
+                android:layout_marginTop="8dp"
+                android:background="#727677"
+                app:layout_constraintTop_toBottomOf="@+id/editTextPasswortWH" />
+
+            <TextView
+                android:id="@+id/textViewAdresse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@android:color/transparent"
+                android:text="Adresse"
+                android:textColor="@android:color/black"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewLinie1" />
+
+            <EditText
+                android:id="@+id/editTextStrasse"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="2dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edittextstyle"
+                android:gravity="center"
+                android:hint="Strasse"
+                android:inputType="textPostalAddress"
+                app:layout_constraintEnd_toStartOf="@+id/editTextHausnummer"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewAdresse" />
+
+            <EditText
+                android:id="@+id/editTextHausnummer"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edittextstyle"
+                android:gravity="center"
+                android:hint="Nr."
+                android:inputType="textPostalAddress"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/editTextStrasse"
+                app:layout_constraintTop_toBottomOf="@+id/textViewAdresse" />
+
+
+            <EditText
+                android:id="@+id/editTextPLZ"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="2dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edittextstyle"
+                android:gravity="center"
+                android:hint="PLZ"
+                android:inputType="textPostalAddress"
+                app:layout_constraintEnd_toStartOf="@+id/editTextOrt"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextStrasse" />
+
+            <EditText
+                android:id="@+id/editTextOrt"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edittextstyle"
+                android:gravity="center"
+                android:hint="Ort"
+                android:inputType="textPostalAddress"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/editTextPLZ"
+                app:layout_constraintTop_toBottomOf="@+id/editTextStrasse" />
+
+            <EditText
+                android:id="@+id/editTextLand"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edittextstyle"
+                android:gravity="center"
+                android:hint="Land"
+                android:inputType="textPostalAddress"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextOrt" />
+
+            <TextView
+                android:id="@+id/textViewLinie2"
+                android:layout_width="fill_parent"
+                android:layout_height="2dip"
+                android:layout_marginTop="8dp"
+                android:background="#727677"
+                app:layout_constraintTop_toBottomOf="@+id/editTextLand" />
+
+            <TextView
+                android:id="@+id/textViewKontodaten"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@android:color/transparent"
+                android:text="Kontodaten"
+                android:textColor="@android:color/black"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewLinie2" />
+
+            <EditText
+                android:id="@+id/editTextNameKC"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edittextstyle"
+                android:gravity="center"
+                android:hint="Kontoinhaber"
+                android:inputType="text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewKontodaten" />
+
+            <EditText
+                android:id="@+id/editTextNummerKC"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edittextstyle"
+                android:gravity="center"
+                android:hint="Kreditkartennr."
+                android:inputType="number"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextNameKC" />
+
+            <EditText
+                android:id="@+id/editTextDatum"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="2dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edittextstyle"
+                android:gravity="center"
+                android:hint="Ablaufdatum"
+                android:inputType="date"
+                app:layout_constraintEnd_toStartOf="@+id/editTextZiffer"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextNummerKC" />
+
+            <EditText
+                android:id="@+id/editTextZiffer"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edittextstyle"
+                android:gravity="center"
+                android:hint="Prüfziffer"
+                android:inputType="number"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/editTextDatum"
+                app:layout_constraintTop_toBottomOf="@+id/editTextNummerKC" />
+
+            <Button
+                android:id="@+id/buttonReg"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="48dp"
+                android:background="@drawable/editstylebutton"
+                android:text="Account erstellen"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextZiffer" />
+
+
+
+
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
