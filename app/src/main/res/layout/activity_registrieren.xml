@@ -15,7 +15,9 @@
             android:layout_height="match_parent"
             android:background="@drawable/startseite_2"
             android:gravity="center_vertical"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
 
             <TextView
                 android:id="@+id/textView_Registrierung"
@@ -45,6 +47,7 @@
                 android:layout_marginTop="16dp"
                 android:text="Die folgenden Angaben sind verpflichtend"
                 android:textColor="@android:color/background_dark"
+                android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -224,8 +227,14 @@
                 android:id="@+id/textViewLinie1"
                 android:layout_width="fill_parent"
                 android:layout_height="2dip"
-                android:layout_marginTop="8dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="32dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
                 android:background="#727677"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editTextPasswortWH" />
 
             <TextView
@@ -332,8 +341,14 @@
                 android:id="@+id/textViewLinie2"
                 android:layout_width="fill_parent"
                 android:layout_height="2dip"
-                android:layout_marginTop="8dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="32dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
                 android:background="#727677"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editTextLand" />
 
             <TextView

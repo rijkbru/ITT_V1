@@ -43,36 +43,60 @@
             android:id="@+id/btnStart"
             android:layout_width="0dp"
             android:layout_height="50dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/editstylebutton_2"
             android:text="@string/start"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline1"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/btnProfil"
             android:layout_width="0dp"
             android:layout_height="50dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/editstylebutton_2"
             android:text="@string/profil"
-            app:layout_constraintStart_toEndOf="@+id/guideline1"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintStart_toEndOf="@+id/guideline1"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/btnHistorie"
             android:layout_width="0dp"
             android:layout_height="50dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/editstylebutton"
             android:text="@string/historie"
-            app:layout_constraintStart_toEndOf="@+id/guideline2"
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
+            app:layout_constraintStart_toEndOf="@+id/guideline2"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/btnSocial"
             android:layout_width="0dp"
             android:layout_height="50dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/editstylebutton_2"
             android:text="@string/social"
-            app:layout_constraintStart_toEndOf="@+id/guideline3"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/guideline3"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView

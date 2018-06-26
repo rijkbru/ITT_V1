@@ -12,6 +12,7 @@
     tools:context=".Registrieren">
 
 
+
     <Button
         android:id="@+id/buttonLogin"
         android:layout_width="fill_parent"
@@ -45,8 +46,6 @@
         app:layout_constraintBottom_toTopOf="@+id/editTextPasswordToLogin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
-
-        <requestFocus />
     </EditText>
 
     <EditText
@@ -61,7 +60,7 @@
         android:background="@drawable/edittextstyle"
         android:ems="10"
         android:gravity="center"
-        android:hint="Password"
+        android:hint="Passwort"
         android:inputType="textPassword"
         app:layout_constraintBottom_toTopOf="@+id/buttonLogin"
         app:layout_constraintEnd_toEndOf="parent"

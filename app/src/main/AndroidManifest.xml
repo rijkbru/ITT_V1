@@ -24,6 +24,7 @@
         <activity android:name=".Start"></activity>
         <activity android:name=".Userarea"></activity>
         <activity android:name=".Userdaten"></activity>
+        <activity android:name=".Social"></activity>
     </application>
 
 </manifest>
