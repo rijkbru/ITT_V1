@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:focusable="true"
-    android:focusableInTouchMode="true">
 
 <android.support.constraint.ConstraintLayout
 
@@ -16,26 +8,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_editor_absoluteX="0dp"
-    app:layout_editor_absoluteY="80dp"
-    tools:layout_editor_absoluteX="0dp"
-    tools:layout_editor_absoluteY="80dp"
-    android:background="@drawable/hintergrund_start">
-
-    <Button
-        android:id="@+id/btnStart3"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginLeft="2dp"
-        android:layout_marginRight="2dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/editstylebutton"
-        android:text="@string/start"
-        app:layout_constraintEnd_toStartOf="@+id/guideline1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    android:background="@drawable/hintergrund_start"
+    android:scaleType = "centerCrop">
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline1"
@@ -67,26 +41,15 @@
         android:layout_marginRight="2dp"
         android:layout_marginStart="2dp"
         android:layout_marginTop="8dp"
-        android:background="@drawable/editstylebutton"
+        android:background="@drawable/editstylebutton_grau"
         android:text="@string/start"
         app:layout_constraintEnd_toStartOf="@+id/guideline1"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnStart2"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginLeft="2dp"
-        android:layout_marginRight="2dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/editstylebutton"
-        android:text="@string/start"
-        app:layout_constraintEnd_toStartOf="@+id/guideline1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:focusableInTouchMode="true">
+        <requestFocus />
+    </Button>
 
     <Button
         android:id="@+id/btnProfil"
@@ -160,7 +123,7 @@
         android:layout_marginRight="16dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
-        android:text="Folgende Veranstaltungen finden heute in deiner Nähe statt:"
+        android:text="Diese Veranstaltungen finden heute in deiner Nähe statt:"
         android:textColor="@android:color/black"
         android:textSize="24sp"
         android:visibility="visible"
@@ -171,7 +134,7 @@
 
     <ImageView
         android:id="@+id/vorschlag_fussball"
-        android:layout_width="80dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
@@ -188,7 +151,7 @@
     <TextView
         android:id="@+id/vorschlag_fussball_text"
         android:layout_width="0dp"
-        android:layout_height="29dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
@@ -224,7 +187,7 @@
     <TextView
         android:id="@+id/vorschlag_konzerte_text"
         android:layout_width="0dp"
-        android:layout_height="29dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="6dp"
         android:layout_marginRight="8dp"
@@ -259,7 +222,7 @@
     <TextView
         android:id="@+id/vorschlag_kino_text"
         android:layout_width="0dp"
-        android:layout_height="28dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
@@ -294,7 +257,7 @@
     <TextView
         android:id="@+id/vorschlag_facebook_text"
         android:layout_width="0dp"
-        android:layout_height="29dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
@@ -334,7 +297,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:background="@drawable/edittextstyle"
+        android:background="@drawable/edittextstyle_grau"
         android:ems="10"
         android:gravity="center"
         android:hint="@string/von"
@@ -352,7 +315,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:background="@drawable/edittextstyle"
+        android:background="@drawable/edittextstyle_grau"
         android:ems="10"
         android:gravity="center"
         android:hint="@string/nach"
@@ -371,7 +334,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:background="@drawable/editstylebutton"
+        android:background="@drawable/editstylebutton_grau"
         android:ems="10"
         android:gravity="center"
         android:text="Fahrt suchen"
@@ -413,4 +376,4 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewLinie2" />
 
 </android.support.constraint.ConstraintLayout>
-</ScrollView>
+
