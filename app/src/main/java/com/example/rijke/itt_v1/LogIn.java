@@ -52,10 +52,14 @@ public class LogIn extends AppCompatActivity {
 
                             if(success){
                                 String Vorname = jsonResponse.getString("Vorname");
+                                String EMail = jsonResponse.getString("EMail");
+//                                String Geburtsort = jsonResponse.getString("Geburtsort");
                                 Toast.makeText(getApplicationContext(),"Login erfolgreich!",Toast.LENGTH_SHORT).show();
 
                                 Intent intent = new Intent(LogIn.this, Start.class);
                                 intent.putExtra("Vorname", Vorname);
+                                intent.putExtra("EMail", EMail);
+
 
                                 LogIn.this.startActivity(intent);
 

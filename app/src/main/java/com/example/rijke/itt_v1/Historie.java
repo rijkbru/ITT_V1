@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class Historie extends AppCompatActivity {
 
@@ -49,5 +50,17 @@ public class Historie extends AppCompatActivity {
                 Historie.this.startActivity(SocialIntent);
             }
         });
+
+
+        final TextView TextViewMessage = (TextView) findViewById(R.id.ueberschrift);
+
+        Intent intent = getIntent();
+        String Vorname = intent.getStringExtra("Vorname");
+        //       String Geburtsort = intent.getStringExtra("Geburtsort");
+//        int IDreisender = intent.getIntExtra("IDreisender", -1);
+
+        String nachricht =  Vorname + "!";
+        TextViewMessage.setText(nachricht);
+
     }
 }

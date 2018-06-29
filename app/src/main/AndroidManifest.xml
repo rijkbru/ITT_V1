@@ -18,10 +18,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Startseite"></activity>
-        <activity
-            android:name=".Registrieren"></activity>
+        <activity android:name=".Startseite"></activity>
+        <activity android:name=".Registrieren"></activity>
         <activity android:name=".Historie"></activity>
         <activity android:name=".Start"></activity>
         <activity android:name=".Userarea"></activity>
