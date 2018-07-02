@@ -63,7 +63,7 @@ public class Userarea extends AppCompatActivity {
                 }
             });
 
-//            Definition of Textfields, will be filled with information later
+//          Definition of Textfields, will be filled with information later
 
             final TextView etName = (TextView) findViewById(R.id.editTextLName);
             final TextView etFName = (TextView) findViewById(R.id.editTextFName);

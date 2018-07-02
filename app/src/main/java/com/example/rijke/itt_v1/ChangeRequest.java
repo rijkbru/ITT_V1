@@ -16,6 +16,7 @@ public class ChangeRequest extends StringRequest {
         params=new HashMap<>();
         params.put("Vorname", Vorname);
         params.put("Nachname", Nachname);
+        params.put("EMail", EMail);
         params.put("Geburtsdatum", Geburtsdatum);
     }
 

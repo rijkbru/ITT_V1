@@ -82,11 +82,11 @@ public class Userdaten extends AppCompatActivity {
                             if (success){
                                 Intent intent = new Intent(Userdaten.this, Userarea.class);
                                 Userdaten.this.startActivity(intent);
-                                Toast.makeText(getApplicationContext(),"Änderung erfolgreich gespeichert!",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(),"Änderungen erfolgreich gespeichert!",Toast.LENGTH_SHORT).show();
 
                             }else{
                                 AlertDialog.Builder builder = new AlertDialog.Builder(Userdaten.this);
-                                builder.setMessage("Änderung fehlgeschlagen")
+                                builder.setMessage("Änderungen fehlgeschlagen")
                                         .setNegativeButton("Bitte wiederholen",null)
                                         .create()
                                         .show();
