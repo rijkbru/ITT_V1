@@ -120,7 +120,6 @@
             android:layout_marginRight="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="20dp"
-            android:text="@string/buchungshistorie"
             android:textColor="@android:color/black"
             android:textSize="30sp"
             android:textStyle="bold"

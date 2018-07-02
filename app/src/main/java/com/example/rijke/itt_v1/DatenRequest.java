@@ -12,7 +12,7 @@ public class DatenRequest extends  StringRequest {
 
 //    IP Adresse ändern, um php zu erreichen
 
-    private static final String Daten_REQUEST_URL = "https://smartdrive.000webhostapp.com/Test_SJ.php";
+    private static final String Daten_REQUEST_URL = "https://smartdrive.000webhostapp.com/Data_Request.php";
     private Map<String, String> params;
 
 //    mit Datenbank abgleichen

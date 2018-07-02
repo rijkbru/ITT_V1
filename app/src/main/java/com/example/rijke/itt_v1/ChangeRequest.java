@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class ChangeRequest extends StringRequest {
 
-    private static final String REGISTER_REQUEST_URL = "http://smartdrive.000webhostapp.com/Change_Data.php";
+    private static final String REGISTER_REQUEST_URL = "http://smartdrive.000webhostapp.com/Change_Data_Alle.php";
     private Map<String, String> params;
 
     public ChangeRequest(String Vorname,String Nachname,String Geburtsdatum,String EMail, Response.Listener<String> ResponseListener){

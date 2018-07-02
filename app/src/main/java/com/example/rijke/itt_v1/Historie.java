@@ -14,6 +14,18 @@ public class Historie extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_historie);
 
+        final TextView tvUeberschrift = (TextView) findViewById(R.id.ueberschrift);
+        final TextView tvIDreisender = (TextView) findViewById(R.id.tvIDreisender5);
+
+        Intent intent = getIntent();
+        final String Vorname = intent.getStringExtra("Vorname");
+        final String EMail = intent.getStringExtra("EMail");
+
+
+        String nachricht =  Vorname + ": deine Fahrten";
+        tvUeberschrift.setText(nachricht);
+        tvIDreisender.setText(EMail);
+
         //Funktionen zum Hin- und Herwechseln zwischen den Seiten
         final Button buttonStart=(Button)findViewById(R.id.btnStart);
         buttonStart.setOnClickListener(new View.OnClickListener(){
@@ -52,15 +64,7 @@ public class Historie extends AppCompatActivity {
         });
 
 
-        final TextView TextViewMessage = (TextView) findViewById(R.id.ueberschrift);
 
-        Intent intent = getIntent();
-        String Vorname = intent.getStringExtra("Vorname");
-        //       String Geburtsort = intent.getStringExtra("Geburtsort");
-//        int IDreisender = intent.getIntExtra("IDreisender", -1);
-
-        String nachricht =  Vorname + "!";
-        TextViewMessage.setText(nachricht);
 
     }
 }

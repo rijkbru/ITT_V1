@@ -5,13 +5,28 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class Social extends AppCompatActivity {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_social);
+
+        final TextView tvUeberschrift = (TextView) findViewById(R.id.ueberschriftAktivitaeten);
+        final TextView tvIDreisender = (TextView) findViewById(R.id.tvIDreisender4);
+
+        Intent intent = getIntent();
+        final String Vorname = intent.getStringExtra("Vorname");
+        final String EMail = intent.getStringExtra("EMail");
+
+
+        String nachricht =  Vorname + " , deine Aktivitäten!";
+        tvUeberschrift.setText(nachricht);
+        tvIDreisender.setText(EMail);
 
         //Funktionen zum Hin- und Herwechseln zwischen den Seiten
         final Button buttonStart=(Button)findViewById(R.id.btnStart);

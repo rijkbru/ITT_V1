@@ -37,6 +37,8 @@ public class Start extends AppCompatActivity {
         TextViewIDreisender.setText(EMail);
 
 
+
+
         //Funktionen zum Hin- und Herwechseln zwischen den Seiten
         final Button buttonStart=(Button)findViewById(R.id.btnStart);
         buttonStart.setOnClickListener(new View.OnClickListener(){
@@ -51,6 +53,7 @@ public class Start extends AppCompatActivity {
         buttonProfil.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+
 
                 Response.Listener<String> responseListener = new Response.Listener<String>(){
                     @Override
@@ -100,8 +103,45 @@ public class Start extends AppCompatActivity {
         buttonHistorie.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent HistorieIntent = new Intent(Start.this, Historie.class);
-                Start.this.startActivity(HistorieIntent);
+                Response.Listener<String> responseListener = new Response.Listener<String>(){
+                    @Override
+                    public void onResponse(String response){
+                        try {
+                            JSONObject jsonResponse = new JSONObject(response);
+                            boolean success = jsonResponse.getBoolean("success");
+
+                            if(success){
+                                String EMail = jsonResponse.getString("EMail");
+                                String Vorname = jsonResponse.getString("Vorname");
+                                String Nachname = jsonResponse.getString("Nachname");
+                                String Geburtsdatum = jsonResponse.getString("Geburtsdatum");
+
+                                Intent intent = new Intent(Start.this, Historie.class);
+                                intent.putExtra("Vorname", Vorname);
+                                intent.putExtra("EMail", EMail);
+                                intent.putExtra("Nachname", Nachname);
+                                intent.putExtra("Geburtsdatum", Geburtsdatum);
+
+
+                                Start.this.startActivity(intent);
+
+
+                            }else{
+                                AlertDialog.Builder builder = new AlertDialog.Builder(Start.this);
+                                builder.setMessage("Datenabruf fehlgeschlagen")
+                                        .setNegativeButton("Wiederholen",null)
+                                        .create()
+                                        .show();
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                };
+                DatenRequest datenRequest = new DatenRequest(EMail, responseListener);
+                RequestQueue queue = Volley.newRequestQueue(Start.this);
+                queue.add(datenRequest);
+
             }
         });
 
@@ -109,8 +149,47 @@ public class Start extends AppCompatActivity {
         buttonSocial.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent SocialIntent = new Intent(Start.this, Social.class);
-                Start.this.startActivity(SocialIntent);
+
+                Response.Listener<String> responseListener = new Response.Listener<String>(){
+                @Override
+                public void onResponse(String response){
+                     try {
+                            JSONObject jsonResponse = new JSONObject(response);
+                            boolean success = jsonResponse.getBoolean("success");
+
+                             if(success){
+                                String EMail = jsonResponse.getString("EMail");
+                                String Vorname = jsonResponse.getString("Vorname");
+                                String Nachname = jsonResponse.getString("Nachname");
+                                String Geburtsdatum = jsonResponse.getString("Geburtsdatum");
+
+                                Intent intent = new Intent(Start.this, Social.class);
+                                intent.putExtra("Vorname", Vorname);
+                                intent.putExtra("EMail", EMail);
+                                intent.putExtra("Nachname", Nachname);
+                                intent.putExtra("Geburtsdatum", Geburtsdatum);
+
+
+                                Start.this.startActivity(intent);
+
+
+                             }else{
+                                 AlertDialog.Builder builder = new AlertDialog.Builder(Start.this);
+                                 builder.setMessage("Datenabruf fehlgeschlagen")
+                                    .setNegativeButton("Wiederholen",null)
+                                    .create()
+                                    .show();
+                        }
+                     } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            };
+                DatenRequest datenRequest = new DatenRequest(EMail, responseListener);
+                RequestQueue queue = Volley.newRequestQueue(Start.this);
+                queue.add(datenRequest);
+
+
             }
         });
 
