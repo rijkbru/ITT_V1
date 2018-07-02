@@ -38,11 +38,12 @@ public class Userdaten extends AppCompatActivity {
         String Nachname = intent.getStringExtra("Nachname");
         String EMail = intent.getStringExtra("EMail");
         String Geburtsdatum = intent.getStringExtra("Geburtsdatum");
+        int IDreisender = intent.getIntExtra("IDreisender", -1);
 
         EtFirstname.setText(Vorname);
         EtLastname.setText(Nachname);
         EtGeburtstag.setText(Geburtsdatum);
-        tvIDreisender.setText(EMail);
+        tvIDreisender.setText(IDreisender + "");
 
 
 
@@ -51,6 +52,7 @@ public class Userdaten extends AppCompatActivity {
         buttonReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                final int IDreisender = Integer.parseInt(tvIDreisender.getText().toString());
                 final String EMail = tvIDreisender.getText().toString();
 
                 final String Vorname = EtFirstname.getText().toString();
@@ -75,6 +77,7 @@ public class Userdaten extends AppCompatActivity {
                 Response.Listener<String> responseListener = new Response.Listener<String>(){
                     @Override
                     public void onResponse(String response){
+
                         try {
                             JSONObject jsonresponse = new JSONObject(response);
                             boolean success = jsonresponse.getBoolean("success");
@@ -98,7 +101,7 @@ public class Userdaten extends AppCompatActivity {
                     }
                 };
 
-                ChangeRequest changeRequest = new ChangeRequest(Vorname,Nachname, Geburtsdatum, EMail, responseListener);
+                ChangeRequest changeRequest = new ChangeRequest(IDreisender,Vorname,Nachname, Geburtsdatum, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(Userdaten.this);
                 queue.add(changeRequest);
 

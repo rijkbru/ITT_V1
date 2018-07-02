@@ -20,11 +20,12 @@ public class Historie extends AppCompatActivity {
         Intent intent = getIntent();
         final String Vorname = intent.getStringExtra("Vorname");
         final String EMail = intent.getStringExtra("EMail");
+        int IDreisender = intent.getIntExtra("IDreisender", -1);
 
 
         String nachricht =  Vorname + ": deine Fahrten";
         tvUeberschrift.setText(nachricht);
-        tvIDreisender.setText(EMail);
+        tvIDreisender.setText(IDreisender + "");
 
         //Funktionen zum Hin- und Herwechseln zwischen den Seiten
         final Button buttonStart=(Button)findViewById(R.id.btnStart);

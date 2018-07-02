@@ -19,7 +19,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Userarea extends AppCompatActivity {
-        private Button button;
+
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -84,7 +84,7 @@ public class Userarea extends AppCompatActivity {
             String Vorname = intent.getStringExtra("Vorname");
             String Geburtsdatum = intent.getStringExtra("Geburtsdatum");
             String EMail = intent.getStringExtra("EMail");
-//            int IDreisender = intent.getIntExtra("IDreisender", -1);
+            int IDreisender = intent.getIntExtra("IDreisender", -1);
 
 
 //       Display information
@@ -93,15 +93,15 @@ public class Userarea extends AppCompatActivity {
             String message = "welcome " + Vorname;
             tvWelcome.setText(message);
             etGeburtsdatum.setText(Geburtsdatum);
-            tvIDreisender.setText(EMail);
+            tvIDreisender.setText(IDreisender + "");
 
 
 
-            button = (Button) findViewById(R.id.buttonBack);
-            button.setOnClickListener(new View.OnClickListener() {
+            final Button buttonBack= (Button) findViewById(R.id.buttonBack);
+            buttonBack.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    final String EMail = tvIDreisender.getText().toString();
+                    final int IDreisender = Integer.parseInt(tvIDreisender.getText().toString());
 
 
                     Response.Listener<String> responseListener = new Response.Listener<String>(){
@@ -116,11 +116,13 @@ public class Userarea extends AppCompatActivity {
                                     String Vorname = jsonResponse.getString("Vorname");
                                     String Nachname = jsonResponse.getString("Nachname");
                                     String Geburtsdatum = jsonResponse.getString("Geburtsdatum");
+                                    int IDreisender = jsonResponse.getInt("IDreisender");
 
                                     Intent intent = new Intent(Userarea.this, Userdaten.class);
                                     intent.putExtra("Vorname", Vorname);
                                     intent.putExtra("Nachname", Nachname);
                                     intent.putExtra("Geburtsdatum", Geburtsdatum);
+                                    intent.putExtra("IDreisender", IDreisender);
 
 
                                     Userarea.this.startActivity(intent);
@@ -139,7 +141,7 @@ public class Userarea extends AppCompatActivity {
                             }
                         }
                     };
-                    DatenRequest datenRequest = new DatenRequest(EMail, responseListener);
+                    DatenRequest datenRequest = new DatenRequest(IDreisender, responseListener);
                     RequestQueue queue = Volley.newRequestQueue(Userarea.this);
                     queue.add(datenRequest);
                 }

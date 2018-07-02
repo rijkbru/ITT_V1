@@ -17,10 +17,10 @@ public class DatenRequest extends  StringRequest {
 
 //    mit Datenbank abgleichen
 
-    public DatenRequest(String EMail, Response.Listener<String> ResponseListener) {
+    public DatenRequest(int IDreisender, Response.Listener<String> ResponseListener) {
         super(Method.POST, Daten_REQUEST_URL, ResponseListener, null);
         params = new HashMap<>();
-        params.put("EMail", EMail);
+        params.put("IDreisender", IDreisender + "");
 
 
 

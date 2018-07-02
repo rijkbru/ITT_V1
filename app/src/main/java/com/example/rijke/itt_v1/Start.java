@@ -30,11 +30,11 @@ public class Start extends AppCompatActivity {
         Intent intent = getIntent();
         final String Vorname = intent.getStringExtra("Vorname");
         final String EMail = intent.getStringExtra("EMail");
-//        int IDreisender = intent.getIntExtra("IDreisender", -1);
+        int IDreisender = intent.getIntExtra("IDreisender", -1);
 
         String nachricht =  Vorname + "!";
         TextViewWelcomeMessage.setText(nachricht);
-        TextViewIDreisender.setText(EMail);
+        TextViewIDreisender.setText(IDreisender + "");
 
 
 
@@ -53,6 +53,7 @@ public class Start extends AppCompatActivity {
         buttonProfil.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                final int IDreisender = Integer.parseInt(TextViewIDreisender.getText().toString());
 
 
                 Response.Listener<String> responseListener = new Response.Listener<String>(){
@@ -67,12 +68,14 @@ public class Start extends AppCompatActivity {
                                 String Vorname = jsonResponse.getString("Vorname");
                                 String Nachname = jsonResponse.getString("Nachname");
                                 String Geburtsdatum = jsonResponse.getString("Geburtsdatum");
+                                int IDreisender = jsonResponse.getInt("IDreisender");
 
                                 Intent intent = new Intent(Start.this, Userarea.class);
                                 intent.putExtra("Vorname", Vorname);
                                 intent.putExtra("EMail", EMail);
                                 intent.putExtra("Nachname", Nachname);
                                 intent.putExtra("Geburtsdatum", Geburtsdatum);
+                                intent.putExtra("IDreisender", IDreisender);
 
 
                                 Start.this.startActivity(intent);
@@ -91,7 +94,7 @@ public class Start extends AppCompatActivity {
                         }
                     }
                 };
-                DatenRequest datenRequest = new DatenRequest(EMail, responseListener);
+                DatenRequest datenRequest = new DatenRequest(IDreisender, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(Start.this);
                 queue.add(datenRequest);
 
@@ -103,6 +106,8 @@ public class Start extends AppCompatActivity {
         buttonHistorie.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                final int IDreisender = Integer.parseInt(TextViewIDreisender.getText().toString());
+
                 Response.Listener<String> responseListener = new Response.Listener<String>(){
                     @Override
                     public void onResponse(String response){
@@ -115,12 +120,14 @@ public class Start extends AppCompatActivity {
                                 String Vorname = jsonResponse.getString("Vorname");
                                 String Nachname = jsonResponse.getString("Nachname");
                                 String Geburtsdatum = jsonResponse.getString("Geburtsdatum");
+                                int IDreisender = jsonResponse.getInt("IDreisender");
 
                                 Intent intent = new Intent(Start.this, Historie.class);
                                 intent.putExtra("Vorname", Vorname);
                                 intent.putExtra("EMail", EMail);
                                 intent.putExtra("Nachname", Nachname);
                                 intent.putExtra("Geburtsdatum", Geburtsdatum);
+                                intent.putExtra("IDreisender", IDreisender);
 
 
                                 Start.this.startActivity(intent);
@@ -138,7 +145,7 @@ public class Start extends AppCompatActivity {
                         }
                     }
                 };
-                DatenRequest datenRequest = new DatenRequest(EMail, responseListener);
+                DatenRequest datenRequest = new DatenRequest(IDreisender, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(Start.this);
                 queue.add(datenRequest);
 
@@ -149,6 +156,7 @@ public class Start extends AppCompatActivity {
         buttonSocial.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                final int IDreisender = Integer.parseInt(TextViewIDreisender.getText().toString());
 
                 Response.Listener<String> responseListener = new Response.Listener<String>(){
                 @Override
@@ -162,12 +170,14 @@ public class Start extends AppCompatActivity {
                                 String Vorname = jsonResponse.getString("Vorname");
                                 String Nachname = jsonResponse.getString("Nachname");
                                 String Geburtsdatum = jsonResponse.getString("Geburtsdatum");
+                                int IDreisender = jsonResponse.getInt("IDreisender");
 
                                 Intent intent = new Intent(Start.this, Social.class);
                                 intent.putExtra("Vorname", Vorname);
                                 intent.putExtra("EMail", EMail);
                                 intent.putExtra("Nachname", Nachname);
                                 intent.putExtra("Geburtsdatum", Geburtsdatum);
+                                intent.putExtra("IDreisender", IDreisender);
 
 
                                 Start.this.startActivity(intent);
@@ -185,7 +195,7 @@ public class Start extends AppCompatActivity {
                     }
                 }
             };
-                DatenRequest datenRequest = new DatenRequest(EMail, responseListener);
+                DatenRequest datenRequest = new DatenRequest(IDreisender, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(Start.this);
                 queue.add(datenRequest);
 
