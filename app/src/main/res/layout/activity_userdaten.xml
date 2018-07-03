@@ -39,7 +39,6 @@
             android:layout_marginRight="80dp"
             android:layout_marginStart="80dp"
             android:layout_marginTop="32dp"
-            android:text="Persönliche Daten"
             android:textColor="@android:color/black"
             android:textSize="36sp"
             android:textStyle="bold"

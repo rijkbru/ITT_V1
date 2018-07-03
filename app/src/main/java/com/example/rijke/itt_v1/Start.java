@@ -64,19 +64,27 @@ public class Start extends AppCompatActivity {
                             boolean success = jsonResponse.getBoolean("success");
 
                             if(success){
-                                String EMail = jsonResponse.getString("EMail");
                                 String Vorname = jsonResponse.getString("Vorname");
                                 String Nachname = jsonResponse.getString("Nachname");
                                 String Geburtsdatum = jsonResponse.getString("Geburtsdatum");
+                                String Geburtsort = jsonResponse.getString("Geburtsort");
+                                String Handynummer = jsonResponse.getString("Handynummer");
+                                String EMail = jsonResponse.getString("EMail");
+                                String Personalausweisnummer = jsonResponse.getString("Personalausweisnummer");
+                                String Passwort = jsonResponse.getString("Passwort");
                                 int IDreisender = jsonResponse.getInt("IDreisender");
+
 
                                 Intent intent = new Intent(Start.this, Userarea.class);
                                 intent.putExtra("Vorname", Vorname);
-                                intent.putExtra("EMail", EMail);
                                 intent.putExtra("Nachname", Nachname);
                                 intent.putExtra("Geburtsdatum", Geburtsdatum);
+                                intent.putExtra("Geburtsort", Geburtsort);
+                                intent.putExtra("Handynummer", Handynummer);
+                                intent.putExtra("EMail", EMail);
+                                intent.putExtra("Personalausweisnummer", Personalausweisnummer);
+                                intent.putExtra("Passwort", Passwort);
                                 intent.putExtra("IDreisender", IDreisender);
-
 
                                 Start.this.startActivity(intent);
 
@@ -116,18 +124,28 @@ public class Start extends AppCompatActivity {
                             boolean success = jsonResponse.getBoolean("success");
 
                             if(success){
-                                String EMail = jsonResponse.getString("EMail");
                                 String Vorname = jsonResponse.getString("Vorname");
                                 String Nachname = jsonResponse.getString("Nachname");
                                 String Geburtsdatum = jsonResponse.getString("Geburtsdatum");
+                                String Geburtsort = jsonResponse.getString("Geburtsort");
+                                String Handynummer = jsonResponse.getString("Handynummer");
+                                String EMail = jsonResponse.getString("EMail");
+                                String Personalausweisnummer = jsonResponse.getString("Personalausweisnummer");
+                                String Passwort = jsonResponse.getString("Passwort");
                                 int IDreisender = jsonResponse.getInt("IDreisender");
+
 
                                 Intent intent = new Intent(Start.this, Historie.class);
                                 intent.putExtra("Vorname", Vorname);
-                                intent.putExtra("EMail", EMail);
                                 intent.putExtra("Nachname", Nachname);
                                 intent.putExtra("Geburtsdatum", Geburtsdatum);
+                                intent.putExtra("Geburtsort", Geburtsort);
+                                intent.putExtra("Handynummer", Handynummer);
+                                intent.putExtra("EMail", EMail);
+                                intent.putExtra("Personalausweisnummer", Personalausweisnummer);
+                                intent.putExtra("Passwort", Passwort);
                                 intent.putExtra("IDreisender", IDreisender);
+
 
 
                                 Start.this.startActivity(intent);
@@ -166,21 +184,31 @@ public class Start extends AppCompatActivity {
                             boolean success = jsonResponse.getBoolean("success");
 
                              if(success){
-                                String EMail = jsonResponse.getString("EMail");
-                                String Vorname = jsonResponse.getString("Vorname");
-                                String Nachname = jsonResponse.getString("Nachname");
-                                String Geburtsdatum = jsonResponse.getString("Geburtsdatum");
-                                int IDreisender = jsonResponse.getInt("IDreisender");
-
-                                Intent intent = new Intent(Start.this, Social.class);
-                                intent.putExtra("Vorname", Vorname);
-                                intent.putExtra("EMail", EMail);
-                                intent.putExtra("Nachname", Nachname);
-                                intent.putExtra("Geburtsdatum", Geburtsdatum);
-                                intent.putExtra("IDreisender", IDreisender);
+                                 String Vorname = jsonResponse.getString("Vorname");
+                                 String Nachname = jsonResponse.getString("Nachname");
+                                 String Geburtsdatum = jsonResponse.getString("Geburtsdatum");
+                                 String Geburtsort = jsonResponse.getString("Geburtsort");
+                                 String Handynummer = jsonResponse.getString("Handynummer");
+                                 String EMail = jsonResponse.getString("EMail");
+                                 String Personalausweisnummer = jsonResponse.getString("Personalausweisnummer");
+                                 String Passwort = jsonResponse.getString("Passwort");
+                                 int IDreisender = jsonResponse.getInt("IDreisender");
 
 
-                                Start.this.startActivity(intent);
+                                 Intent intent = new Intent(Start.this, Social.class);
+                                 intent.putExtra("Vorname", Vorname);
+                                 intent.putExtra("Nachname", Nachname);
+                                 intent.putExtra("Geburtsdatum", Geburtsdatum);
+                                 intent.putExtra("Geburtsort", Geburtsort);
+                                 intent.putExtra("Handynummer", Handynummer);
+                                 intent.putExtra("EMail", EMail);
+                                 intent.putExtra("Personalausweisnummer", Personalausweisnummer);
+                                 intent.putExtra("Passwort", Passwort);
+                                 intent.putExtra("IDreisender", IDreisender);
+
+
+
+                                 Start.this.startActivity(intent);
 
 
                              }else{

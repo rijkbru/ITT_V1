@@ -1,11 +1,19 @@
 package com.example.rijke.itt_v1;
 
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class Historie extends AppCompatActivity {
 
@@ -32,37 +40,256 @@ public class Historie extends AppCompatActivity {
         buttonStart.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent StartIntent = new Intent(Historie.this, Start.class);
-                Historie.this.startActivity(StartIntent);
+                final int IDreisender = Integer.parseInt(tvIDreisender.getText().toString());
+
+
+                Response.Listener<String> responseListener = new Response.Listener<String>(){
+                    @Override
+                    public void onResponse(String response){
+                        try {
+                            JSONObject jsonResponse = new JSONObject(response);
+                            boolean success = jsonResponse.getBoolean("success");
+
+                            if(success){
+
+                                String Vorname = jsonResponse.getString("Vorname");
+                                String Nachname = jsonResponse.getString("Nachname");
+                                String Geburtsdatum = jsonResponse.getString("Geburtsdatum");
+                                String Geburtsort = jsonResponse.getString("Geburtsort");
+                                String Handynummer = jsonResponse.getString("Handynummer");
+                                String EMail = jsonResponse.getString("EMail");
+                                String Personalausweisnummer = jsonResponse.getString("Personalausweisnummer");
+                                String Passwort = jsonResponse.getString("Passwort");
+                                int IDreisender = jsonResponse.getInt("IDreisender");
+
+
+                                Intent intent = new Intent(Historie.this, Start.class);
+                                intent.putExtra("Vorname", Vorname);
+                                intent.putExtra("Nachname", Nachname);
+                                intent.putExtra("Geburtsdatum", Geburtsdatum);
+                                intent.putExtra("Geburtsort", Geburtsort);
+                                intent.putExtra("Handynummer", Handynummer);
+                                intent.putExtra("EMail", EMail);
+                                intent.putExtra("Personalausweisnummer", Personalausweisnummer);
+                                intent.putExtra("Passwort", Passwort);
+                                intent.putExtra("IDreisender", IDreisender);
+
+
+                                Historie.this.startActivity(intent);
+
+
+                            }else{
+                                AlertDialog.Builder builder = new AlertDialog.Builder(Historie.this);
+                                builder.setMessage("Datenabruf fehlgeschlagen")
+                                        .setNegativeButton("Wiederholen",null)
+                                        .create()
+                                        .show();
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                };
+                DatenRequest datenRequest = new DatenRequest(IDreisender, responseListener);
+                RequestQueue queue = Volley.newRequestQueue(Historie.this);
+                queue.add(datenRequest);
+
             }
         });
+
 
         final Button buttonProfil=(Button)findViewById(R.id.btnProfil);
         buttonProfil.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent ProfilIntent = new Intent(Historie.this, Userarea.class);
-                Historie.this.startActivity(ProfilIntent);
+                final int IDreisender = Integer.parseInt(tvIDreisender.getText().toString());
+
+
+                Response.Listener<String> responseListener = new Response.Listener<String>(){
+                    @Override
+                    public void onResponse(String response){
+                        try {
+                            JSONObject jsonResponse = new JSONObject(response);
+                            boolean success = jsonResponse.getBoolean("success");
+
+                            if(success){
+
+                                String Vorname = jsonResponse.getString("Vorname");
+                                String Nachname = jsonResponse.getString("Nachname");
+                                String Geburtsdatum = jsonResponse.getString("Geburtsdatum");
+                                String Geburtsort = jsonResponse.getString("Geburtsort");
+                                String Handynummer = jsonResponse.getString("Handynummer");
+                                String EMail = jsonResponse.getString("EMail");
+                                String Personalausweisnummer = jsonResponse.getString("Personalausweisnummer");
+                                String Passwort = jsonResponse.getString("Passwort");
+                                int IDreisender = jsonResponse.getInt("IDreisender");
+
+
+                                Intent intent = new Intent(Historie.this, Userarea.class);
+                                intent.putExtra("Vorname", Vorname);
+                                intent.putExtra("Nachname", Nachname);
+                                intent.putExtra("Geburtsdatum", Geburtsdatum);
+                                intent.putExtra("Geburtsort", Geburtsort);
+                                intent.putExtra("Handynummer", Handynummer);
+                                intent.putExtra("EMail", EMail);
+                                intent.putExtra("Personalausweisnummer", Personalausweisnummer);
+                                intent.putExtra("Passwort", Passwort);
+                                intent.putExtra("IDreisender", IDreisender);
+
+
+
+                                Historie.this.startActivity(intent);
+
+
+                            }else{
+                                AlertDialog.Builder builder = new AlertDialog.Builder(Historie.this);
+                                builder.setMessage("Datenabruf fehlgeschlagen")
+                                        .setNegativeButton("Wiederholen",null)
+                                        .create()
+                                        .show();
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                };
+                DatenRequest datenRequest = new DatenRequest(IDreisender, responseListener);
+                RequestQueue queue = Volley.newRequestQueue(Historie.this);
+                queue.add(datenRequest);
+
             }
         });
+
 
         final Button buttonHistorie=(Button)findViewById(R.id.btnHistorie);
         buttonHistorie.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent HistorieIntent = new Intent(Historie.this, Historie.class);
-                Historie.this.startActivity(HistorieIntent);
+                final int IDreisender = Integer.parseInt(tvIDreisender.getText().toString());
+
+
+                Response.Listener<String> responseListener = new Response.Listener<String>(){
+                    @Override
+                    public void onResponse(String response){
+                        try {
+                            JSONObject jsonResponse = new JSONObject(response);
+                            boolean success = jsonResponse.getBoolean("success");
+
+                            if(success){
+
+                                String Vorname = jsonResponse.getString("Vorname");
+                                String Nachname = jsonResponse.getString("Nachname");
+                                String Geburtsdatum = jsonResponse.getString("Geburtsdatum");
+                                String Geburtsort = jsonResponse.getString("Geburtsort");
+                                String Handynummer = jsonResponse.getString("Handynummer");
+                                String EMail = jsonResponse.getString("EMail");
+                                String Personalausweisnummer = jsonResponse.getString("Personalausweisnummer");
+                                String Passwort = jsonResponse.getString("Passwort");
+                                int IDreisender = jsonResponse.getInt("IDreisender");
+
+
+                                Intent intent = new Intent(Historie.this, Historie.class);
+                                intent.putExtra("Vorname", Vorname);
+                                intent.putExtra("Nachname", Nachname);
+                                intent.putExtra("Geburtsdatum", Geburtsdatum);
+                                intent.putExtra("Geburtsort", Geburtsort);
+                                intent.putExtra("Handynummer", Handynummer);
+                                intent.putExtra("EMail", EMail);
+                                intent.putExtra("Personalausweisnummer", Personalausweisnummer);
+                                intent.putExtra("Passwort", Passwort);
+                                intent.putExtra("IDreisender", IDreisender);
+
+
+
+                                Historie.this.startActivity(intent);
+
+
+                            }else{
+                                AlertDialog.Builder builder = new AlertDialog.Builder(Historie.this);
+                                builder.setMessage("Datenabruf fehlgeschlagen")
+                                        .setNegativeButton("Wiederholen",null)
+                                        .create()
+                                        .show();
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                };
+                DatenRequest datenRequest = new DatenRequest(IDreisender, responseListener);
+                RequestQueue queue = Volley.newRequestQueue(Historie.this);
+                queue.add(datenRequest);
+
             }
         });
+
 
         final Button buttonSocial=(Button)findViewById(R.id.btnSocial);
         buttonSocial.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent SocialIntent = new Intent(Historie.this, Social.class);
-                Historie.this.startActivity(SocialIntent);
+                final int IDreisender = Integer.parseInt(tvIDreisender.getText().toString());
+
+
+                Response.Listener<String> responseListener = new Response.Listener<String>(){
+                    @Override
+                    public void onResponse(String response){
+                        try {
+                            JSONObject jsonResponse = new JSONObject(response);
+                            boolean success = jsonResponse.getBoolean("success");
+
+                            if(success){
+
+                                String Vorname = jsonResponse.getString("Vorname");
+                                String Nachname = jsonResponse.getString("Nachname");
+                                String Geburtsdatum = jsonResponse.getString("Geburtsdatum");
+                                String Geburtsort = jsonResponse.getString("Geburtsort");
+                                String Handynummer = jsonResponse.getString("Handynummer");
+                                String EMail = jsonResponse.getString("EMail");
+                                String Personalausweisnummer = jsonResponse.getString("Personalausweisnummer");
+                                String Passwort = jsonResponse.getString("Passwort");
+                                int IDreisender = jsonResponse.getInt("IDreisender");
+
+
+                                Intent intent = new Intent(Historie.this, Social.class);
+                                intent.putExtra("Vorname", Vorname);
+                                intent.putExtra("Nachname", Nachname);
+                                intent.putExtra("Geburtsdatum", Geburtsdatum);
+                                intent.putExtra("Geburtsort", Geburtsort);
+                                intent.putExtra("Handynummer", Handynummer);
+                                intent.putExtra("EMail", EMail);
+                                intent.putExtra("Personalausweisnummer", Personalausweisnummer);
+                                intent.putExtra("Passwort", Passwort);
+                                intent.putExtra("IDreisender", IDreisender);
+
+
+
+                                Historie.this.startActivity(intent);
+
+
+                            }else{
+                                AlertDialog.Builder builder = new AlertDialog.Builder(Historie.this);
+                                builder.setMessage("Datenabruf fehlgeschlagen")
+                                        .setNegativeButton("Wiederholen",null)
+                                        .create()
+                                        .show();
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                };
+                DatenRequest datenRequest = new DatenRequest(IDreisender, responseListener);
+                RequestQueue queue = Volley.newRequestQueue(Historie.this);
+                queue.add(datenRequest);
+
             }
         });
+
 
     }
     @Override
