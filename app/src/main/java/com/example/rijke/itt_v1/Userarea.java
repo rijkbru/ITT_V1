@@ -90,7 +90,7 @@ public class Userarea extends AppCompatActivity {
 //       Display information
             etName.setText(Nachname);
             etFName.setText(Vorname);
-            String message = "welcome " + Vorname;
+            String message = "Hallo " + Vorname;
             tvWelcome.setText(message);
             etGeburtsdatum.setText(Geburtsdatum);
             tvIDreisender.setText(IDreisender + "");
@@ -149,6 +149,9 @@ public class Userarea extends AppCompatActivity {
 
 
         }
+    @Override
+    public void onBackPressed() {
+    }
 }
 
 

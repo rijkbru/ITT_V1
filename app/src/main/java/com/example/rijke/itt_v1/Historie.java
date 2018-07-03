@@ -64,8 +64,8 @@ public class Historie extends AppCompatActivity {
             }
         });
 
-
-
-
+    }
+    @Override
+    public void onBackPressed() {
     }
 }

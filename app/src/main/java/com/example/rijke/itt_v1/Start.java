@@ -203,6 +203,21 @@ public class Start extends AppCompatActivity {
             }
         });
 
+        final Button buttonLogOut=(Button)findViewById(R.id.btnAusloggen);
+        buttonLogOut.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent StartIntent = new Intent(Start.this, LogIn.class);
+                Start.this.startActivity(StartIntent);
+                Toast.makeText(getApplicationContext(),"Sie haben sich erfolgreich ausgeloggt!",Toast.LENGTH_SHORT).show();
+            }
 
+
+        });
+
+
+    }
+    @Override
+    public void onBackPressed() {
     }
 }

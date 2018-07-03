@@ -26,7 +26,7 @@
             android:layout_marginRight="18dp"
             android:layout_marginTop="16dp"
             android:text="TextView"
-            android:visibility="visible"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnSocial" />
 
@@ -64,7 +64,10 @@
             android:text="@string/start"
             app:layout_constraintEnd_toStartOf="@+id/guideline1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:focusableInTouchMode="true">
+            <requestFocus />
+        </Button>
 
         <Button
             android:id="@+id/btnProfil"
@@ -94,7 +97,8 @@
             android:text="@string/historie"
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
             app:layout_constraintStart_toEndOf="@+id/guideline2"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"/>
+
 
         <Button
             android:id="@+id/btnSocial"
@@ -150,8 +154,8 @@
             android:id="@+id/fahrt1"
             android:layout_width="0dp"
             android:layout_height="29dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="24dp"
             android:text="@string/datum1"
             android:textColor="@android:color/black"
@@ -182,8 +186,8 @@
             android:id="@+id/uhrzeit1"
             android:layout_width="0dp"
             android:layout_height="29dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="@string/uhrzeit1"
             android:textColor="@android:color/black"
@@ -228,8 +232,8 @@
             android:id="@+id/fahrt2"
             android:layout_width="0dp"
             android:layout_height="29dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:text="@string/datum2"
             android:textColor="@android:color/black"
@@ -260,8 +264,8 @@
             android:id="@+id/uhrzeit2"
             android:layout_width="0dp"
             android:layout_height="29dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="@string/uhrzeit2"
             android:textColor="@android:color/black"
@@ -276,8 +280,8 @@
             android:id="@+id/von2"
             android:layout_width="0dp"
             android:layout_height="29dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="@string/von2"
             android:textColor="@android:color/white"
@@ -292,8 +296,8 @@
             android:id="@+id/nach2"
             android:layout_width="0dp"
             android:layout_height="29dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="@string/nach2"
             android:textColor="@android:color/white"

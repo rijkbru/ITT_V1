@@ -126,4 +126,7 @@ public class Userdaten extends AppCompatActivity {
 
   });
     }
+    @Override
+    public void onBackPressed() {
+    }
 }

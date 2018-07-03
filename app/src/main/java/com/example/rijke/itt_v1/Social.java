@@ -66,4 +66,7 @@ public class Social extends AppCompatActivity {
             }
         });
     }
+    @Override
+    public void onBackPressed() {
+    }
 }
