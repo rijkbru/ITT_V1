@@ -98,13 +98,13 @@ public class Userdaten extends AppCompatActivity {
                 final String Passwort = EtPassword.getText().toString();
                 final String Strasse = EtStrasse.getText().toString();
                 final String Hausnummer = EtHausnummer.getText().toString();
-                final int PLZ = Integer.parseInt(EtPLZ.getText().toString());
+                //final int PLZ = Integer.parseInt(EtPLZ.getText().toString());
                 final String Ort = EtOrt.getText().toString();
                 final String Land = EtLand.getText().toString();
                 final String Kontoinhaber = EtNameKC.getText().toString();
-                final int Kartennummer = Integer.parseInt(EtNummerKC.getText().toString());
+                //final int Kartennummer = Integer.parseInt(EtNummerKC.getText().toString());
                 final String Datum = EtDatum.getText().toString();
-                final int Ziffer = Integer.parseInt(EtZiffer.getText().toString());
+                //final int Ziffer = Integer.parseInt(EtZiffer.getText().toString());
                 final String PasswortWH = EtPasswortWH.getText().toString();
 
 
