@@ -6,7 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -17,6 +19,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Registrieren extends AppCompatActivity {
+
+    public int gelesen = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +45,26 @@ public class Registrieren extends AppCompatActivity {
         final EditText editTextNummerKC = (EditText) findViewById(R.id.editTextNummerKC);
         final EditText editTextDatum = (EditText) findViewById(R.id.editTextDatum);
         final EditText editTextZiffer = (EditText) findViewById(R.id.editTextZiffer);
-
+        final CheckBox checkBoxAGB = (CheckBox) findViewById(R.id.checkBoxAGB);
         final Button buttonReg = (Button) findViewById(R.id.buttonReg);
+        final Button buttonAGB = (Button) findViewById(R.id.buttonAGB);
+        final ImageView imageViewAGB = (ImageView) findViewById(R.id.imageViewAGB);
+
+
+        buttonAGB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                imageViewAGB.setVisibility(View.VISIBLE);
+                gelesen = 2;
+                }
+        });
+
+        checkBoxAGB.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                imageViewAGB.setVisibility(View.INVISIBLE);
+            }
+        });
 
         buttonReg.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -66,47 +88,62 @@ public class Registrieren extends AppCompatActivity {
                 final int Ziffer = Integer.parseInt(editTextZiffer.getText().toString());
                 final String PasswortWH = editTextPasswortWH.getText().toString();
 
-                if (Passwort.equals(PasswortWH)){
+
+                if (checkBoxAGB.isChecked()) {
+                    if (gelesen == 1){
+                        AlertDialog.Builder builder = new AlertDialog.Builder(Registrieren.this);
+                        builder.setMessage("Sie müssen die AGBs auch lesen, nicht nur klicken!")
+                                .setNegativeButton("Wiederholen", null)
+                                .create()
+                                .show();
+                    }else {
+                        if (Passwort.equals(PasswortWH)) {
 
 
+                            Response.Listener<String> responseListener = new Response.Listener<String>() {
+                                @Override
+                                public void onResponse(String response) {
+                                    try {
+                                        JSONObject jsonresponse = new JSONObject(response);
+                                        boolean success = jsonresponse.getBoolean("success");
 
-                    Response.Listener<String> responseListener = new Response.Listener<String>(){
-                        @Override
-                        public void onResponse(String response){
-                            try {
-                                JSONObject jsonresponse = new JSONObject(response);
-                                boolean success = jsonresponse.getBoolean("success");
+                                        if (success) {
+                                            Intent intent = new Intent(Registrieren.this, LogIn.class);
+                                            Registrieren.this.startActivity(intent);
+                                            Toast.makeText(getApplicationContext(), "Registrierung erfolgreich!", Toast.LENGTH_SHORT).show();
 
-                                if (success){
-                                    Intent intent = new Intent(Registrieren.this, LogIn.class);
-                                    Registrieren.this.startActivity(intent);
-                                    Toast.makeText(getApplicationContext(),"Registrierung erfolgreich!",Toast.LENGTH_SHORT).show();
+                                        } else {
+                                            AlertDialog.Builder builder = new AlertDialog.Builder(Registrieren.this);
+                                            builder.setMessage("Es existiert bereits ein Konto mit dieser E-Mail-Adresse")
+                                                    .setNegativeButton("Wiederholen", null)
+                                                    .create()
+                                                    .show();
+                                        }
 
-                                }else{
-                                    AlertDialog.Builder builder = new AlertDialog.Builder(Registrieren.this);
-                                    builder.setMessage("Es existiert bereits ein Konto mit dieser E-Mail-Adresse")
-                                            .setNegativeButton("Wiederholen",null)
-                                            .create()
-                                            .show();
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
                                 }
+                            };
 
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
+                            RegisterRequest registerRequest = new RegisterRequest(Vorname, Nachname, Geburtsdatum, Geburtsort, Handynummer, EMail, Personalausweisnummer, Passwort, Strasse, Hausnummer, PLZ, Ort, Land, Kontoinhaber, Kartennummer, Datum, Ziffer, responseListener);
+                            RequestQueue queue = Volley.newRequestQueue(Registrieren.this);
+                            queue.add(registerRequest);
+                        } else {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(Registrieren.this);
+                            builder.setMessage("Die Passwörter stimmen nicht überein!")
+                                    .setNegativeButton("Wiederholen", null)
+                                    .create()
+                                    .show();
                         }
-                    };
-
-                    RegisterRequest registerRequest = new RegisterRequest(Vorname,Nachname,Geburtsdatum,Geburtsort,Handynummer,EMail,Personalausweisnummer,Passwort,Strasse,Hausnummer,PLZ,Ort,Land,Kontoinhaber,Kartennummer,Datum,Ziffer, responseListener);
-                    RequestQueue queue = Volley.newRequestQueue(Registrieren.this);
-                    queue.add(registerRequest);
-                }else {
+                    }
+                }else{
                     AlertDialog.Builder builder = new AlertDialog.Builder(Registrieren.this);
-                    builder.setMessage("Die Passwörter stimmen nicht überein!")
-                            .setNegativeButton("Wiederholen",null)
+                    builder.setMessage("Sie müssen die AGBs akzeptieren!")
+                            .setNegativeButton("Wiederholen", null)
                             .create()
                             .show();
                 }
-
             }
         });
     }

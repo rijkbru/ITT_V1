@@ -233,6 +233,7 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="16dp"
                 android:background="#727677"
+                android:textColor="@android:color/darker_gray"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editTextPasswortWH" />
@@ -442,7 +443,7 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="48dp"
+                android:layout_marginTop="128dp"
                 android:background="@drawable/editstylebutton"
                 android:text="Account erstellen"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -450,8 +451,62 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editTextZiffer" />
 
+            <TextView
+                android:id="@+id/textViewLinie4"
+                android:layout_width="fill_parent"
+                android:layout_height="2dip"
+                android:layout_marginEnd="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="32dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:background="#727677"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextZiffer" />
 
+            <CheckBox
+                android:id="@+id/checkBoxAGB"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Hiermit bestätige ich die AGBs zur Nutzung der SmartDrive Sevices"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="18sp"
+                android:onClick="onCeckBoxClicked"
+                app:layout_constraintEnd_toStartOf="@+id/buttonAGB"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewLinie4" />
 
+            <ImageView
+                android:id="@+id/imageViewAGB"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toTopOf="@+id/checkBoxAGB"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/agb_affe" />
+
+            <Button
+                android:id="@+id/buttonAGB"
+                android:layout_width="50dp"
+                android:layout_height="25dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/editstylebutton"
+                android:text="AGB"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewLinie4" />
 
 
         </android.support.constraint.ConstraintLayout>
