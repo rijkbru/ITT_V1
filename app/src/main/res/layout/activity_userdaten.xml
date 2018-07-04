@@ -26,7 +26,7 @@
             android:layout_marginRight="18dp"
             android:layout_marginTop="16dp"
             android:text="TextView"
-            android:visibility="visible"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnSocial" />
 
@@ -38,7 +38,7 @@
             android:layout_marginLeft="80dp"
             android:layout_marginRight="80dp"
             android:layout_marginStart="80dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="28dp"
             android:textColor="@android:color/black"
             android:textSize="36sp"
             android:textStyle="bold"
@@ -219,6 +219,7 @@
             android:id="@+id/editTextPasswortWH"
             android:layout_width="0dp"
             android:layout_height="40dp"
+            android:layout_marginBottom="8dp"
             android:layout_marginEnd="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
@@ -228,6 +229,7 @@
             android:gravity="center"
             android:hint="Passwort wiederholen"
             android:inputType="textPassword"
+            app:layout_constraintBottom_toTopOf="@+id/textViewLinie1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextPasswort" />
@@ -236,131 +238,64 @@
             android:id="@+id/textViewLinie1"
             android:layout_width="fill_parent"
             android:layout_height="2dip"
-            android:layout_marginTop="8dp"
+            android:layout_marginBottom="28dp"
+            android:layout_marginTop="26dp"
             android:background="#727677"
+            app:layout_constraintBottom_toTopOf="@+id/buttonBack"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextPasswortWH" />
 
         <TextView
             android:id="@+id/textViewAdresse"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="18dp"
             android:background="@android:color/transparent"
             android:text="Adresse"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/editTextLand"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewLinie1" />
+            app:layout_constraintTop_toBottomOf="@+id/buttonBack" />
 
-        <EditText
-            android:id="@+id/editTextStrasse"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_marginEnd="2dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="2dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/edittextstyle"
-            android:gravity="center"
-            android:hint="Strasse"
-            android:inputType="textPostalAddress"
-            app:layout_constraintEnd_toStartOf="@+id/editTextHausnummer"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewAdresse" />
-
-        <EditText
-            android:id="@+id/editTextHausnummer"
-            android:layout_width="100dp"
-            android:layout_height="40dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginStart="2dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/edittextstyle"
-            android:gravity="center"
-            android:hint="Nr."
-            android:inputType="textPostalAddress"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/editTextStrasse"
-            app:layout_constraintTop_toBottomOf="@+id/textViewAdresse" />
-
-
-        <EditText
-            android:id="@+id/editTextPLZ"
-            android:layout_width="100dp"
-            android:layout_height="40dp"
-            android:layout_marginEnd="2dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="2dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/edittextstyle"
-            android:gravity="center"
-            android:hint="PLZ"
-            android:inputType="textPostalAddress"
-            app:layout_constraintEnd_toStartOf="@+id/editTextOrt"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextStrasse" />
-
-        <EditText
-            android:id="@+id/editTextOrt"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginStart="2dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/edittextstyle"
-            android:gravity="center"
-            android:hint="Ort"
-            android:inputType="textPostalAddress"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/editTextPLZ"
-            app:layout_constraintTop_toBottomOf="@+id/editTextStrasse" />
 
         <EditText
             android:id="@+id/editTextLand"
             android:layout_width="0dp"
             android:layout_height="40dp"
+            android:layout_marginBottom="26dp"
             android:layout_marginEnd="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:background="@drawable/edittextstyle"
+            android:background="@drawable/editstylebutton"
             android:gravity="center"
-            android:hint="Land"
             android:inputType="textPostalAddress"
+            android:text="Adresse ändern"
+            app:layout_constraintBottom_toTopOf="@+id/textViewKontodaten"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextOrt" />
-
-        <TextView
-            android:id="@+id/textViewLinie2"
-            android:layout_width="fill_parent"
-            android:layout_height="2dip"
-            android:layout_marginTop="8dp"
-            android:background="#727677"
-            app:layout_constraintTop_toBottomOf="@+id/editTextLand" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewAdresse" />
 
         <TextView
             android:id="@+id/textViewKontodaten"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="15dp"
             android:background="@android:color/transparent"
             android:text="Kontodaten"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/editTextNameKC"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewLinie2" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextLand" />
 
         <EditText
             android:id="@+id/editTextNameKC"
@@ -371,79 +306,31 @@
             android:layout_marginRight="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:background="@drawable/edittextstyle"
+            android:background="@drawable/editstylebutton"
             android:gravity="center"
-            android:hint="Kontoinhaber"
             android:inputType="text"
+            android:text="Kontodaten ändern"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewKontodaten" />
-
-        <EditText
-            android:id="@+id/editTextNummerKC"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/edittextstyle"
-            android:gravity="center"
-            android:hint="Kreditkartennr."
-            android:inputType="number"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextNameKC" />
-
-        <EditText
-            android:id="@+id/editTextDatum"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_marginEnd="2dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="2dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/edittextstyle"
-            android:gravity="center"
-            android:hint="Ablaufdatum"
-            android:inputType="date"
-            app:layout_constraintEnd_toStartOf="@+id/editTextZiffer"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextNummerKC" />
-
-        <EditText
-            android:id="@+id/editTextZiffer"
-            android:layout_width="100dp"
-            android:layout_height="40dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginStart="2dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/edittextstyle"
-            android:gravity="center"
-            android:hint="Prüfziffer"
-            android:inputType="number"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/editTextDatum"
-            app:layout_constraintTop_toBottomOf="@+id/editTextNummerKC" />
 
         <Button
             android:id="@+id/buttonBack"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="14dp"
             android:layout_marginEnd="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="48dp"
             android:background="@drawable/editstylebutton"
             android:text="Änderungen speichern"
+            app:layout_constraintBottom_toTopOf="@+id/textViewAdresse"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextZiffer" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewLinie1" />
 
 
 
