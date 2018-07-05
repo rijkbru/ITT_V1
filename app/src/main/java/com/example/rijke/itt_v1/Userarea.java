@@ -53,7 +53,7 @@ public class Userarea extends AppCompatActivity {
 //       Display information
             etName.setText(Nachname);
             etFName.setText(Vorname);
-            String message = "Hallo " + Vorname;
+            String message = Vorname + ", dein Profil!";
             tvWelcome.setText(message);
             etGeburtsdatum.setText(Geburtsdatum);
             tvIDreisender.setText(IDreisender + "");

@@ -11,13 +11,18 @@ public class ChangeRequest extends StringRequest {
     private static final String REGISTER_REQUEST_URL = "http://smartdrive.000webhostapp.com/Change_Data_Alle.php";
     private Map<String, String> params;
 
-    public ChangeRequest(int IDreisender, String Vorname,String Nachname,String Geburtsdatum, Response.Listener<String> ResponseListener){
+    public ChangeRequest(int IDreisender, String Vorname,String Nachname,String Geburtsdatum,String EMail,String Geburtsort,String Handynummer,String Personalausweisnummer,String Passwort, Response.Listener<String> ResponseListener){
         super(Method.POST, REGISTER_REQUEST_URL, ResponseListener, null);
         params=new HashMap<>();
         params.put("IDreisender", IDreisender + "");
         params.put("Vorname", Vorname);
         params.put("Nachname", Nachname);
         params.put("Geburtsdatum", Geburtsdatum);
+        params.put("Geburtsort", Geburtsort);
+        params.put("EMail", EMail);
+        params.put("Handynummer", Handynummer);
+        params.put("Personalausweisnummer", Personalausweisnummer);
+        params.put("Passwort", Passwort);
     }
 
     @Override

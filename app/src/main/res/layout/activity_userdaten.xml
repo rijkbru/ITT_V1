@@ -14,7 +14,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/startseite"
+        android:background="@drawable/hintergrund_zwei"
         android:gravity="center_vertical"
         android:orientation="vertical">
 
@@ -34,10 +34,10 @@
             android:id="@+id/textView_Registrierung"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="80dp"
-            android:layout_marginLeft="80dp"
-            android:layout_marginRight="80dp"
-            android:layout_marginStart="80dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="28dp"
             android:textColor="@android:color/black"
             android:textSize="36sp"
@@ -238,10 +238,8 @@
             android:id="@+id/textViewLinie1"
             android:layout_width="fill_parent"
             android:layout_height="2dip"
-            android:layout_marginBottom="28dp"
-            android:layout_marginTop="26dp"
+            android:layout_marginTop="80dp"
             android:background="#727677"
-            app:layout_constraintBottom_toTopOf="@+id/buttonBack"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextPasswortWH" />
@@ -318,19 +316,20 @@
         <Button
             android:id="@+id/buttonBack"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="55dp"
             android:layout_marginBottom="14dp"
             android:layout_marginEnd="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
             android:background="@drawable/editstylebutton"
             android:text="Änderungen speichern"
             app:layout_constraintBottom_toTopOf="@+id/textViewAdresse"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewLinie1" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextPasswortWH" />
 
 
 

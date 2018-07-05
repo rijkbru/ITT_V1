@@ -32,7 +32,7 @@ public class Start extends AppCompatActivity {
         final String EMail = intent.getStringExtra("EMail");
         int IDreisender = intent.getIntExtra("IDreisender", -1);
 
-        String nachricht =  Vorname + "!";
+        String nachricht =  "Hallo " + Vorname + "!";
         TextViewWelcomeMessage.setText(nachricht);
         TextViewIDreisender.setText(IDreisender + "");
 

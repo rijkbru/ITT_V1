@@ -35,7 +35,7 @@ public class Social extends AppCompatActivity {
         int IDreisender = intent.getIntExtra("IDreisender", -1);
 
 
-        String nachricht =  Vorname + " , deine Aktivitäten!";
+        String nachricht =  Vorname + ", deine Aktivitäten!";
         tvUeberschrift.setText(nachricht);
         tvIDreisender.setText(IDreisender + "");
 

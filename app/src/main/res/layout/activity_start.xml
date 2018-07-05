@@ -8,7 +8,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/hintergrund_start"
+    android:background="@drawable/hintergrund_eins"
     android:scaleType = "centerCrop">
 
     <android.support.constraint.Guideline
@@ -115,8 +115,8 @@
 
     <TextView
         android:id="@+id/begruessung"
-        android:layout_width="0dp"
-        android:layout_height="32dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
@@ -127,8 +127,7 @@
         android:textStyle="bold"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/textViewHallo"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnStart" />
 
     <TextView
@@ -139,7 +138,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="16dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:text="Diese Veranstaltungen finden heute in deiner Nähe statt:"
         android:textColor="@android:color/black"
         android:textSize="24sp"
@@ -360,20 +359,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextfahrt_buchen_nach" />
-
-    <TextView
-        android:id="@+id/textViewHallo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:text="Hallo"
-        android:textColor="@android:color/black"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnStart" />
 
     <TextView
         android:id="@+id/textViewFahrtbuchen"

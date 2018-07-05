@@ -33,16 +33,15 @@ public class Userdaten extends AppCompatActivity {
         final EditText EtPersonummer = (EditText) findViewById(R.id.editTextPersonummer);
         final EditText EtPassword = (EditText) findViewById(R.id.editTextPasswort);
         final EditText EtPasswortWH = (EditText) findViewById(R.id.editTextPasswortWH);
-        final EditText EtStrasse = (EditText) findViewById(R.id.editTextStrasse);
-        final EditText EtHausnummer = (EditText) findViewById(R.id.editTextHausnummer);
-        final EditText EtPLZ = (EditText) findViewById(R.id.editTextPLZ);
-        final EditText EtOrt = (EditText) findViewById(R.id.editTextOrt);
-        final EditText EtLand = (EditText) findViewById(R.id.editTextLand);
-        final EditText EtNameKC = (EditText) findViewById(R.id.editTextNameKC);
-        final EditText EtNummerKC = (EditText) findViewById(R.id.editTextNummerKC);
-        final EditText EtDatum = (EditText) findViewById(R.id.editTextDatum);
-        final EditText EtZiffer = (EditText) findViewById(R.id.editTextZiffer);
-
+        //final EditText EtStrasse = (EditText) findViewById(R.id.editTextStrasse);
+        //final EditText EtHausnummer = (EditText) findViewById(R.id.editTextHausnummer);
+        //final EditText EtPLZ = (EditText) findViewById(R.id.editTextPLZ);
+        //final EditText EtOrt = (EditText) findViewById(R.id.editTextOrt);
+        //final EditText EtLand = (EditText) findViewById(R.id.editTextLand);
+        //final EditText EtNameKC = (EditText) findViewById(R.id.editTextNameKC);
+        //final EditText EtNummerKC = (EditText) findViewById(R.id.editTextNummerKC);
+        //final EditText EtDatum = (EditText) findViewById(R.id.editTextDatum);
+        //final EditText EtZiffer = (EditText) findViewById(R.id.editTextZiffer);
         final TextView TextViewWelcomeMessage = (TextView) findViewById(R.id.textView_Registrierung);
         final EditText EtFirstname = (EditText) findViewById(R.id.editTextFName);
         final EditText EtLastname = (EditText) findViewById(R.id.editTextLName);
@@ -72,7 +71,7 @@ public class Userdaten extends AppCompatActivity {
         EtPasswortWH.setText(Passwort);
 
         tvIDreisender.setText(IDreisender + "");
-        String nachricht = "Deine persönlichen Daten, " + Vorname;
+        String nachricht = Vorname + ", deine persönlichen Daten!" ;
         TextViewWelcomeMessage.setText(nachricht);
         EtEmail.setText(EMail);
 
@@ -87,8 +86,7 @@ public class Userdaten extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 final int IDreisender = Integer.parseInt(tvIDreisender.getText().toString());
-                final String EMail = tvIDreisender.getText().toString();
-
+                final String EMail = EtEmail.getText().toString();
                 final String Vorname = EtFirstname.getText().toString();
                 final String Nachname = EtLastname.getText().toString();
                 final String Geburtsdatum = EtGeburtstag.getText().toString();
@@ -96,14 +94,14 @@ public class Userdaten extends AppCompatActivity {
                 final String Handynummer = EtHandynummer.getText().toString();
                 final String Personalausweisnummer = EtPersonummer.getText().toString();
                 final String Passwort = EtPassword.getText().toString();
-                final String Strasse = EtStrasse.getText().toString();
-                final String Hausnummer = EtHausnummer.getText().toString();
+                //final String Strasse = EtStrasse.getText().toString();
+                //final String Hausnummer = EtHausnummer.getText().toString();
                 //final int PLZ = Integer.parseInt(EtPLZ.getText().toString());
-                final String Ort = EtOrt.getText().toString();
-                final String Land = EtLand.getText().toString();
-                final String Kontoinhaber = EtNameKC.getText().toString();
+                //final String Ort = EtOrt.getText().toString();
+                //final String Land = EtLand.getText().toString();
+                //final String Kontoinhaber = EtNameKC.getText().toString();
                 //final int Kartennummer = Integer.parseInt(EtNummerKC.getText().toString());
-                final String Datum = EtDatum.getText().toString();
+                //final String Datum = EtDatum.getText().toString();
                 //final int Ziffer = Integer.parseInt(EtZiffer.getText().toString());
                 final String PasswortWH = EtPasswortWH.getText().toString();
 
@@ -145,7 +143,7 @@ public class Userdaten extends AppCompatActivity {
                     }
                 };
 
-                ChangeRequest changeRequest = new ChangeRequest(IDreisender,Vorname,Nachname, Geburtsdatum, responseListener);
+                ChangeRequest changeRequest = new ChangeRequest(IDreisender,Vorname,Nachname, Geburtsdatum,EMail,Geburtsort,Handynummer,Personalausweisnummer,Passwort, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(Userdaten.this);
                 queue.add(changeRequest);
 

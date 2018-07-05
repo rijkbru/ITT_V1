@@ -31,7 +31,7 @@ public class Historie extends AppCompatActivity {
         int IDreisender = intent.getIntExtra("IDreisender", -1);
 
 
-        String nachricht =  Vorname + ": deine Fahrten";
+        String nachricht =  Vorname + ", deine Fahrten!";
         tvUeberschrift.setText(nachricht);
         tvIDreisender.setText(IDreisender + "");
 
