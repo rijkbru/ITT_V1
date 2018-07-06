@@ -5,9 +5,6 @@ import com.android.volley.toolbox.StringRequest;
 
 import java.util.HashMap;
 import java.util.Map;
-
-
-
 public class DatenRequest extends  StringRequest {
 
     //Aufruf der benötigten php-Datei auf dem Server

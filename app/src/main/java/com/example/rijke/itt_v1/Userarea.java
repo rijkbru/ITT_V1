@@ -27,7 +27,6 @@ public class Userarea extends AppCompatActivity {
             setContentView(R.layout.activity_userarea);
 
             // Definition der Textfelder
-
             final TextView etName = (TextView) findViewById(R.id.editTextLName);
             final TextView etFName = (TextView) findViewById(R.id.editTextFName);
             final TextView tvWelcome = (TextView) findViewById(R.id.tvWelcome);
