@@ -20,6 +20,7 @@ import org.json.JSONObject;
 
 public class Registrieren extends AppCompatActivity {
 
+    //Initialisierung einer Variable zur Abfrage, ob die FAQ gelesen wurden
     public int gelesen = 1;
 
     @Override
@@ -27,6 +28,7 @@ public class Registrieren extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrieren);
 
+        //Initialisierung der Textfelder, Buttons, Bilder und Checkbox
         final EditText editTextFName = (EditText) findViewById(R.id.editTextFName);
         final EditText editTextLName = (EditText) findViewById(R.id.editTextLName);
         final EditText editTextEmail = (EditText) findViewById(R.id.editTextEmail);
@@ -50,7 +52,7 @@ public class Registrieren extends AppCompatActivity {
         final Button buttonAGB = (Button) findViewById(R.id.buttonAGB);
         final ImageView imageViewAGB = (ImageView) findViewById(R.id.imageViewAGB);
 
-
+        //Wenn der AGB-Buttopn gedrückt wird, werden die AGB angezeigt und der Variablenwert für gelesen geändert
         buttonAGB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,6 +61,7 @@ public class Registrieren extends AppCompatActivity {
                 }
         });
 
+        //sobald die AGB akzeptiert werden, werden diese wieder ausgeblendet
         checkBoxAGB.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -66,9 +69,11 @@ public class Registrieren extends AppCompatActivity {
             }
         });
 
+        //Ausführung der Regsitrierung nach Betätigen des entsprechenden Buttons
         buttonReg.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                //Speichern der Textfeldwerte in den entsprechenden Variablen
                 final String Vorname = editTextFName.getText().toString();
                 final String Nachname = editTextLName.getText().toString();
                 final String EMail = editTextEmail.getText().toString();
@@ -88,31 +93,37 @@ public class Registrieren extends AppCompatActivity {
                 final int Ziffer = Integer.parseInt(editTextZiffer.getText().toString());
                 final String PasswortWH = editTextPasswortWH.getText().toString();
 
-
+                //Abfrage, ob die AGB gelesen wurden
                 if (checkBoxAGB.isChecked()) {
+                    //Abfrage, ob die AGB aufgerufen wurden
                     if (gelesen == 1){
+                        //Fehlermeldung, wenn die AGB nicht aufgerufen wurden (Variablenwert unverändert)
                         AlertDialog.Builder builder = new AlertDialog.Builder(Registrieren.this);
                         builder.setMessage("Sie müssen die AGBs auch lesen, nicht nur klicken!")
                                 .setNegativeButton("Wiederholen", null)
                                 .create()
                                 .show();
                     }else {
+                        //Überprüfung, ob die Passwörter übereinstimmen
                         if (Passwort.equals(PasswortWH)) {
-
 
                             Response.Listener<String> responseListener = new Response.Listener<String>() {
                                 @Override
                                 public void onResponse(String response) {
                                     try {
+                                        //Abfrage, ob die Abfragen der php-Datei erfolgreich waren
                                         JSONObject jsonresponse = new JSONObject(response);
                                         boolean success = jsonresponse.getBoolean("success");
 
                                         if (success) {
+                                            //Bei erfolgreicher Durchführung der Registrierung wird die Login-Seite erneut aufgezeigt
                                             Intent intent = new Intent(Registrieren.this, LogIn.class);
                                             Registrieren.this.startActivity(intent);
+                                            //Nutzer bekommt Meldung, dass die Registrierung erfolgreich war
                                             Toast.makeText(getApplicationContext(), "Registrierung erfolgreich!", Toast.LENGTH_SHORT).show();
 
                                         } else {
+                                            //Wenn die Abfrage nicht erfolgreich war, besteht bereits ein konto mit der E-Mail-Adresse, folglich wird dies dem Nutzer mitgeteilt
                                             AlertDialog.Builder builder = new AlertDialog.Builder(Registrieren.this);
                                             builder.setMessage("Es existiert bereits ein Konto mit dieser E-Mail-Adresse")
                                                     .setNegativeButton("Wiederholen", null)
@@ -125,11 +136,13 @@ public class Registrieren extends AppCompatActivity {
                                     }
                                 }
                             };
-
+                            //Aufruf der RegisterRequest mit Weitergabe der benötigten variablen
                             RegisterRequest registerRequest = new RegisterRequest(Vorname, Nachname, Geburtsdatum, Geburtsort, Handynummer, EMail, Personalausweisnummer, Passwort, Strasse, Hausnummer, PLZ, Ort, Land, Kontoinhaber, Kartennummer, Datum, Ziffer, responseListener);
                             RequestQueue queue = Volley.newRequestQueue(Registrieren.this);
                             queue.add(registerRequest);
+
                         } else {
+                            //Wenn die Passwörter nicht übereinstimmen, wird dies dem Nutzer mitgeteilt und er kann diese erneut eingeben
                             AlertDialog.Builder builder = new AlertDialog.Builder(Registrieren.this);
                             builder.setMessage("Die Passwörter stimmen nicht überein!")
                                     .setNegativeButton("Wiederholen", null)
@@ -138,6 +151,7 @@ public class Registrieren extends AppCompatActivity {
                         }
                     }
                 }else{
+                    //Wenn die AGBs nicht akzeptiert wurden, wird dies angezeigt und der Nutzer kann dies Nachholen
                     AlertDialog.Builder builder = new AlertDialog.Builder(Registrieren.this);
                     builder.setMessage("Sie müssen die AGBs akzeptieren!")
                             .setNegativeButton("Wiederholen", null)

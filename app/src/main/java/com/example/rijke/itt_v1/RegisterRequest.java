@@ -7,10 +7,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class RegisterRequest extends StringRequest {
+    //Aufruf der benötigten php-Datei auf dem Server
     private static final String REGISTER_REQUEST_URL = "http://smartdrive.000webhostapp.com/Register_Data_Alle.php";
     private Map<String, String> params;
 
     public RegisterRequest(String Vorname,String Nachname,String Geburtsdatum,String Geburtsort,String Handynummer,String EMail,String Personalausweisnummer,String Passwort,String Strasse,String Hausnummer,Integer PLZ,String Ort,String Land,String Kontoinhaber,Integer Kartennummer,String Datum,Integer Ziffer, Response.Listener<String> ResponseListener){
+        //Weitergabe der relevanten Parameter an die php-Datei
         super(Method.POST, REGISTER_REQUEST_URL, ResponseListener, null);
         params=new HashMap<>();
         params.put("Vorname", Vorname);
@@ -32,6 +34,7 @@ public class RegisterRequest extends StringRequest {
         params.put("Ziffer", Ziffer + "");
     }
 
+    //Abspeichern der zurückgegebenen Variablen
     @Override
     public Map<String, String> getParams(){
         return params;

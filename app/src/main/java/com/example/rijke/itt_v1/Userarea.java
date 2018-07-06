@@ -60,23 +60,25 @@ public class Userarea extends AppCompatActivity {
 
 
 
-            //Funktionen zum Hin- und Herwechseln zwischen den Seiten
+            //Funktionen zum Hin- und Herwechseln zwischen den Seiten, sobald der jeweilige Button gedrückt wird
             final Button buttonStart=(Button)findViewById(R.id.btnStart);
             buttonStart.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v){
+                    //Übergabe der ID zum Abruf der Daten aus der Datenbank
                     final int IDreisender = Integer.parseInt(tvIDreisender.getText().toString());
 
-
+                    //Abruf der Daten aus der Datenbank mit Hilfe der php-Datei und der Aktivität DatenRequest
                     Response.Listener<String> responseListener = new Response.Listener<String>(){
                         @Override
                         public void onResponse(String response){
                             try {
+                                //Abfrage, ob Datenabruf durch die php-Datei erfolgreich war
                                 JSONObject jsonResponse = new JSONObject(response);
                                 boolean success = jsonResponse.getBoolean("success");
 
                                 if(success){
-
+                                    //Abspeichern aller zurückgegebenen Nutzerdaten
                                     String Vorname = jsonResponse.getString("Vorname");
                                     String Nachname = jsonResponse.getString("Nachname");
                                     String Geburtsdatum = jsonResponse.getString("Geburtsdatum");
@@ -87,7 +89,7 @@ public class Userarea extends AppCompatActivity {
                                     String Passwort = jsonResponse.getString("Passwort");
                                     int IDreisender = jsonResponse.getInt("IDreisender");
 
-
+                                    //Aufruf der neuen Aktivität (Start) und gleichzeitige Weitergabe der Nutzerdaten
                                     Intent intent = new Intent(Userarea.this, Start.class);
                                     intent.putExtra("Vorname", Vorname);
                                     intent.putExtra("Nachname", Nachname);
@@ -98,13 +100,11 @@ public class Userarea extends AppCompatActivity {
                                     intent.putExtra("Personalausweisnummer", Personalausweisnummer);
                                     intent.putExtra("Passwort", Passwort);
                                     intent.putExtra("IDreisender", IDreisender);
-
-
-
                                     Userarea.this.startActivity(intent);
 
 
                                 }else{
+                                    //Fehlermeldung, falls beim Datenabruf etwas nicht funktioniert (bsp. Fehler in  der php-Datei, keine Verbindung zum Server)
                                     AlertDialog.Builder builder = new AlertDialog.Builder(Userarea.this);
                                     builder.setMessage("Datenabruf fehlgeschlagen")
                                             .setNegativeButton("Wiederholen",null)
@@ -117,6 +117,7 @@ public class Userarea extends AppCompatActivity {
                             }
                         }
                     };
+                    //Aufforderung zum Aufruf der Aktitivät DatenRequest und Weitergabe der zur Abfrage benötigten Daten
                     DatenRequest datenRequest = new DatenRequest(IDreisender, responseListener);
                     RequestQueue queue = Volley.newRequestQueue(Userarea.this);
                     queue.add(datenRequest);
@@ -128,18 +129,20 @@ public class Userarea extends AppCompatActivity {
             buttonProfil.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v){
+                    //Übergabe der ID zum Abruf der Daten aus der Datenbank
                     final int IDreisender = Integer.parseInt(tvIDreisender.getText().toString());
 
-
+                    //Abruf der Daten aus der Datenbank mit Hilfe der php-Datei und der Aktivität DatenRequest
                     Response.Listener<String> responseListener = new Response.Listener<String>(){
                         @Override
                         public void onResponse(String response){
                             try {
+                                //Abfrage, ob Datenabruf durch die php-Datei erfolgreich war
                                 JSONObject jsonResponse = new JSONObject(response);
                                 boolean success = jsonResponse.getBoolean("success");
 
                                 if(success){
-
+                                    //Abspeichern aller zurückgegebenen Nutzerdaten
                                     String Vorname = jsonResponse.getString("Vorname");
                                     String Nachname = jsonResponse.getString("Nachname");
                                     String Geburtsdatum = jsonResponse.getString("Geburtsdatum");
@@ -150,7 +153,7 @@ public class Userarea extends AppCompatActivity {
                                     String Passwort = jsonResponse.getString("Passwort");
                                     int IDreisender = jsonResponse.getInt("IDreisender");
 
-
+                                    //Aufruf der neuen Aktivität (Userarea) und gleichzeitige Weitergabe der Nutzerdaten
                                     Intent intent = new Intent(Userarea.this, Userarea.class);
                                     intent.putExtra("Vorname", Vorname);
                                     intent.putExtra("Nachname", Nachname);
@@ -161,13 +164,11 @@ public class Userarea extends AppCompatActivity {
                                     intent.putExtra("Personalausweisnummer", Personalausweisnummer);
                                     intent.putExtra("Passwort", Passwort);
                                     intent.putExtra("IDreisender", IDreisender);
-
-
-
                                     Userarea.this.startActivity(intent);
 
 
                                 }else{
+                                    //Fehlermeldung, falls beim Datenabruf etwas nicht funktioniert (bsp. Fehler in  der php-Datei, keine Verbindung zum Server)
                                     AlertDialog.Builder builder = new AlertDialog.Builder(Userarea.this);
                                     builder.setMessage("Datenabruf fehlgeschlagen")
                                             .setNegativeButton("Wiederholen",null)
@@ -180,6 +181,7 @@ public class Userarea extends AppCompatActivity {
                             }
                         }
                     };
+                    //Aufforderung zum Aufruf der Aktitivät DatenRequest und Weitergabe der zur Abfrage benötigten Daten
                     DatenRequest datenRequest = new DatenRequest(IDreisender, responseListener);
                     RequestQueue queue = Volley.newRequestQueue(Userarea.this);
                     queue.add(datenRequest);
@@ -191,18 +193,20 @@ public class Userarea extends AppCompatActivity {
             buttonHistorie.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v){
+                    //Übergabe der ID zum Abruf der Daten aus der Datenbank
                     final int IDreisender = Integer.parseInt(tvIDreisender.getText().toString());
 
-
+                    //Abruf der Daten aus der Datenbank mit Hilfe der php-Datei und der Aktivität DatenRequest
                     Response.Listener<String> responseListener = new Response.Listener<String>(){
                         @Override
                         public void onResponse(String response){
                             try {
+                                //Abfrage, ob Datenabruf durch die php-Datei erfolgreich war
                                 JSONObject jsonResponse = new JSONObject(response);
                                 boolean success = jsonResponse.getBoolean("success");
 
                                 if(success){
-
+                                    //Abspeichern aller zurückgegebenen Nutzerdaten
                                     String Vorname = jsonResponse.getString("Vorname");
                                     String Nachname = jsonResponse.getString("Nachname");
                                     String Geburtsdatum = jsonResponse.getString("Geburtsdatum");
@@ -213,7 +217,7 @@ public class Userarea extends AppCompatActivity {
                                     String Passwort = jsonResponse.getString("Passwort");
                                     int IDreisender = jsonResponse.getInt("IDreisender");
 
-
+                                    //Aufruf der neuen Aktivität (Historie) und gleichzeitige Weitergabe der Nutzerdaten
                                     Intent intent = new Intent(Userarea.this, Historie.class);
                                     intent.putExtra("Vorname", Vorname);
                                     intent.putExtra("Nachname", Nachname);
@@ -224,13 +228,11 @@ public class Userarea extends AppCompatActivity {
                                     intent.putExtra("Personalausweisnummer", Personalausweisnummer);
                                     intent.putExtra("Passwort", Passwort);
                                     intent.putExtra("IDreisender", IDreisender);
-
-
-
                                     Userarea.this.startActivity(intent);
 
 
                                 }else{
+                                    //Fehlermeldung, falls beim Datenabruf etwas nicht funktioniert (bsp. Fehler in  der php-Datei, keine Verbindung zum Server)
                                     AlertDialog.Builder builder = new AlertDialog.Builder(Userarea.this);
                                     builder.setMessage("Datenabruf fehlgeschlagen")
                                             .setNegativeButton("Wiederholen",null)
@@ -243,6 +245,7 @@ public class Userarea extends AppCompatActivity {
                             }
                         }
                     };
+                    //Aufforderung zum Aufruf der Aktitivät DatenRequest und Weitergabe der zur Abfrage benötigten Daten
                     DatenRequest datenRequest = new DatenRequest(IDreisender, responseListener);
                     RequestQueue queue = Volley.newRequestQueue(Userarea.this);
                     queue.add(datenRequest);
@@ -254,18 +257,20 @@ public class Userarea extends AppCompatActivity {
             buttonSocial.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v){
+                    //Übergabe der ID zum Abruf der Daten aus der Datenbank
                     final int IDreisender = Integer.parseInt(tvIDreisender.getText().toString());
 
-
+                    //Abruf der Daten aus der Datenbank mit Hilfe der php-Datei und der Aktivität DatenRequest
                     Response.Listener<String> responseListener = new Response.Listener<String>(){
                         @Override
                         public void onResponse(String response){
                             try {
+                                //Abfrage, ob Datenabruf durch die php-Datei erfolgreich war
                                 JSONObject jsonResponse = new JSONObject(response);
                                 boolean success = jsonResponse.getBoolean("success");
 
                                 if(success){
-
+                                    //Abspeichern aller zurückgegebenen Nutzerdaten
                                     String Vorname = jsonResponse.getString("Vorname");
                                     String Nachname = jsonResponse.getString("Nachname");
                                     String Geburtsdatum = jsonResponse.getString("Geburtsdatum");
@@ -276,7 +281,7 @@ public class Userarea extends AppCompatActivity {
                                     String Passwort = jsonResponse.getString("Passwort");
                                     int IDreisender = jsonResponse.getInt("IDreisender");
 
-
+                                    //Aufruf der neuen Aktivität (Social) und gleichzeitige Weitergabe der Nutzerdaten
                                     Intent intent = new Intent(Userarea.this, Social.class);
                                     intent.putExtra("Vorname", Vorname);
                                     intent.putExtra("Nachname", Nachname);
@@ -287,13 +292,11 @@ public class Userarea extends AppCompatActivity {
                                     intent.putExtra("Personalausweisnummer", Personalausweisnummer);
                                     intent.putExtra("Passwort", Passwort);
                                     intent.putExtra("IDreisender", IDreisender);
-
-
-
                                     Userarea.this.startActivity(intent);
 
 
                                 }else{
+                                    //Fehlermeldung, falls beim Datenabruf etwas nicht funktioniert (bsp. Fehler in  der php-Datei, keine Verbindung zum Server)
                                     AlertDialog.Builder builder = new AlertDialog.Builder(Userarea.this);
                                     builder.setMessage("Datenabruf fehlgeschlagen")
                                             .setNegativeButton("Wiederholen",null)
@@ -306,6 +309,7 @@ public class Userarea extends AppCompatActivity {
                             }
                         }
                     };
+                    //Aufforderung zum Aufruf der Aktitivät DatenRequest und Weitergabe der zur Abfrage benötigten Daten
                     DatenRequest datenRequest = new DatenRequest(IDreisender, responseListener);
                     RequestQueue queue = Volley.newRequestQueue(Userarea.this);
                     queue.add(datenRequest);
@@ -318,18 +322,20 @@ public class Userarea extends AppCompatActivity {
             buttonBack.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    //Übergabe der ID zum Abruf der Daten aus der Datenbank
                     final int IDreisender = Integer.parseInt(tvIDreisender.getText().toString());
 
-
+                    //Abruf der Daten aus der Datenbank mit Hilfe der php-Datei und der Aktivität DatenRequest
                     Response.Listener<String> responseListener = new Response.Listener<String>(){
                         @Override
                         public void onResponse(String response){
                             try {
+                                //Abfrage, ob Datenabruf durch die php-Datei erfolgreich war
                                 JSONObject jsonResponse = new JSONObject(response);
                                 boolean success = jsonResponse.getBoolean("success");
 
                                 if(success){
-
+                                    //Abspeichern aller zurückgegebenen Nutzerdaten
                                     String Vorname = jsonResponse.getString("Vorname");
                                     String Nachname = jsonResponse.getString("Nachname");
                                     String Geburtsdatum = jsonResponse.getString("Geburtsdatum");
@@ -340,7 +346,7 @@ public class Userarea extends AppCompatActivity {
                                     String Passwort = jsonResponse.getString("Passwort");
                                     int IDreisender = jsonResponse.getInt("IDreisender");
 
-
+                                    //Aufruf der neuen Aktivität (USerdaten) und gleichzeitige Weitergabe der Nutzerdaten
                                     Intent intent = new Intent(Userarea.this, Userdaten.class);
                                     intent.putExtra("Vorname", Vorname);
                                     intent.putExtra("Nachname", Nachname);
@@ -351,12 +357,11 @@ public class Userarea extends AppCompatActivity {
                                     intent.putExtra("Personalausweisnummer", Personalausweisnummer);
                                     intent.putExtra("Passwort", Passwort);
                                     intent.putExtra("IDreisender", IDreisender);
-
-
                                     Userarea.this.startActivity(intent);
 
 
                                 }else{
+                                    //Fehlermeldung, falls beim Datenabruf etwas nicht funktioniert (bsp. Fehler in  der php-Datei, keine Verbindung zum Server)
                                     AlertDialog.Builder builder = new AlertDialog.Builder(Userarea.this);
                                     builder.setMessage("Datenabruf fehlgeschlagen")
                                             .setNegativeButton("Wiederholen",null)
@@ -369,6 +374,7 @@ public class Userarea extends AppCompatActivity {
                             }
                         }
                     };
+                    //Aufforderung zum Aufruf der Aktitivät DatenRequest und Weitergabe der zur Abfrage benötigten Daten
                     DatenRequest datenRequest = new DatenRequest(IDreisender, responseListener);
                     RequestQueue queue = Volley.newRequestQueue(Userarea.this);
                     queue.add(datenRequest);

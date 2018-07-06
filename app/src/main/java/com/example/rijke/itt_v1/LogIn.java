@@ -25,11 +25,13 @@ public class LogIn extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
 
+        //Initialisiierung der Textfelder im layout
         final EditText editTextEmailToLogin=(EditText)findViewById(R.id. editTextEmailToLogin);
         final EditText editTextPasswordToLogin=(EditText)findViewById(R.id. editTextPasswordToLogin);
         final Button buttonLogin=(Button)findViewById(R.id. buttonLogin);
         final Button buttonReg_Link=(Button)findViewById(R.id.buttonReg_Link);
 
+        //Aufruf der Registrierungsseite bei Klicken des Buittons
         buttonReg_Link.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -38,35 +40,41 @@ public class LogIn extends AppCompatActivity {
                 }
         });
 
+        //Start des Login-Vorgangs durch Klicken des Login-Buttons
         buttonLogin.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                //Speichern der Werte in den textfeldern als Variablen
                 final String Email = editTextEmailToLogin.getText().toString();
                 final String Passwort = editTextPasswordToLogin.getText().toString();
 
+                //Antwort der php-Datei nach Aufruf der php-Datei durch den LoginRequest
                 Response.Listener<String> responseListener = new Response.Listener<String>(){
                     @Override
                     public void onResponse(String response){
                         try {
+                            //Überprüfung, ob die Abfargen ind er php-Datei erfolgreich waren
                             JSONObject jsonResponse = new JSONObject(response);
                             boolean success = jsonResponse.getBoolean("success");
 
                             if(success){
+                                //bei erfolgreicher Abfrage, abspeichern der zurückgegebenen Variablenwerte
                                 String Vorname = jsonResponse.getString("Vorname");
                                 String EMail = jsonResponse.getString("EMail");
                                 int IDreisender = jsonResponse.getInt("IDreisender");
-//                                String Geburtsort = jsonResponse.getString("Geburtsort");
+
+                                //Mitteilung an den Nutzer, dass der Login erfolgreich war
                                 Toast.makeText(getApplicationContext(),"Login erfolgreich!",Toast.LENGTH_SHORT).show();
 
+                                //Öffnen der Start-Aktivität und Weitergabe der relevanten Nutzerdaten
                                 Intent intent = new Intent(LogIn.this, Start.class);
                                 intent.putExtra("Vorname", Vorname);
                                 intent.putExtra("EMail", EMail);
                                 intent.putExtra("IDreisender", IDreisender);
-
-
                                 LogIn.this.startActivity(intent);
 
                             }else{
+                                //Falls ein Fehler auftritt (z.B. Passwort stimmt nicht, Konto existiert nicht), Aufruf einer Fehlermeldung
                                 AlertDialog.Builder builder = new AlertDialog.Builder(LogIn.this);
                                 builder.setMessage("Login fehlgeschlagen")
                                         .setNegativeButton("Wiederholen",null)
@@ -79,6 +87,7 @@ public class LogIn extends AppCompatActivity {
                         }
                     }
                 };
+                //Aufforderung zum Aufruf des LoginRequests mit Weitergabe der relevanten Variablen
                 LoginRequest loginRequest = new LoginRequest(Email, Passwort, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(LogIn.this);
                 queue.add(loginRequest);
@@ -86,6 +95,7 @@ public class LogIn extends AppCompatActivity {
         });
 
     }
+    //Beim Betätigen der Zurücktaste wird die Applikation geschlossen
     @Override
     public void onBackPressed() {
         moveTaskToBack(true);
