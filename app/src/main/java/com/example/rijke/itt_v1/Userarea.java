@@ -26,7 +26,7 @@ public class Userarea extends AppCompatActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_userarea);
 
-            //          Definition of Textfields, will be filled with information later
+            // Definition der Textfelder
 
             final TextView etName = (TextView) findViewById(R.id.editTextLName);
             final TextView etFName = (TextView) findViewById(R.id.editTextFName);
@@ -34,6 +34,7 @@ public class Userarea extends AppCompatActivity {
             final TextView tvIDreisender = (TextView) findViewById(R.id.tvIDreisender2);
             final TextView etGeburtsdatum = (TextView) findViewById(R.id.editTextGeburtsdatum);
 
+            // Definition des Drop-Down Menü des Interessen
             Spinner mySpinner = (Spinner) findViewById(R.id.spinner1);
 
             ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(Userarea.this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.Interessen));
@@ -41,7 +42,7 @@ public class Userarea extends AppCompatActivity {
             mySpinner.setAdapter(myAdapter);
 
 
-            //        Get information from Start with same IDreisender and pass over to Userarea
+            //Auswerten der Textfelder auf der Seite
             Intent intent = getIntent();
             String Nachname = intent.getStringExtra("Nachname");
             String Vorname = intent.getStringExtra("Vorname");
@@ -50,7 +51,7 @@ public class Userarea extends AppCompatActivity {
             int IDreisender = intent.getIntExtra("IDreisender", -1);
 
 
-//       Display information
+            //Setzen der pesonalisierten Überschrift unf füllen der Felder mit Namen des Reisenden
             etName.setText(Nachname);
             etFName.setText(Vorname);
             String message = Vorname + ", dein Profil!";

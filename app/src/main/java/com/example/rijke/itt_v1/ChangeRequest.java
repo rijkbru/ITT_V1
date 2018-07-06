@@ -8,10 +8,13 @@ import java.util.Map;
 
 public class ChangeRequest extends StringRequest {
 
+    //Aufruf der benötigten php-Datei auf dem Server
     private static final String REGISTER_REQUEST_URL = "http://smartdrive.000webhostapp.com/Change_Data_Alle.php";
     private Map<String, String> params;
 
     public ChangeRequest(int IDreisender, String Vorname,String Nachname,String Geburtsdatum,String EMail,String Geburtsort,String Handynummer,String Personalausweisnummer,String Passwort, Response.Listener<String> ResponseListener){
+
+        //Weitergabe der relevanten Parameter an die php-Datei
         super(Method.POST, REGISTER_REQUEST_URL, ResponseListener, null);
         params=new HashMap<>();
         params.put("IDreisender", IDreisender + "");
@@ -25,6 +28,7 @@ public class ChangeRequest extends StringRequest {
         params.put("Passwort", Passwort);
     }
 
+    //Abspeichern der zurückgegebenen Variablen
     @Override
     public Map<String, String> getParams(){
         return params;

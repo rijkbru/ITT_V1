@@ -10,14 +10,14 @@ import java.util.Map;
 
 public class DatenRequest extends  StringRequest {
 
-//    IP Adresse ändern, um php zu erreichen
-
+    //Aufruf der benötigten php-Datei auf dem Server
     private static final String Daten_REQUEST_URL = "https://smartdrive.000webhostapp.com/Data_Request.php";
     private Map<String, String> params;
 
-//    mit Datenbank abgleichen
 
     public DatenRequest(int IDreisender, Response.Listener<String> ResponseListener) {
+
+        //Weitergabe der relevanten Parameter an die php-Datei
         super(Method.POST, Daten_REQUEST_URL, ResponseListener, null);
         params = new HashMap<>();
         params.put("IDreisender", IDreisender + "");
@@ -26,6 +26,7 @@ public class DatenRequest extends  StringRequest {
 
     }
 
+    //Abspeichern der zurückgegebenen Variablen
     @Override
     public Map<String, String> getParams() {
         return params;
